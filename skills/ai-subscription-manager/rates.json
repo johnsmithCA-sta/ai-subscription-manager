@@ -1,0 +1,10 @@
+{
+  "base": "USD",
+  "updated_at": "2026-08-23",
+  "rates": {
+    "USD": 1.0,
+    "CNY": 7.25,
+    "EUR": 0.92
+  },
+  "note": "汇率为参考值，1 USD = X 单位目标货币。如需精确换算，请手动更新此文件或设置 SUBMGR_DATA_DIR 指向包含 rates.json 的目录。"
+}

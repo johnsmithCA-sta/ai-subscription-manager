@@ -1,0 +1,29 @@
+{
+  "categories": {
+    "ai_chat": {
+      "name": "AI 对话",
+      "description": "通用对话式 AI 产品，涵盖文本对话、多模态理解、搜索增强等能力",
+      "subcategories": ["通用对话", "搜索增强", "角色扮演"]
+    },
+    "ai_code": {
+      "name": "AI 编程",
+      "description": "AI 辅助编程工具，包括代码编辑器、代码补全插件、代码审查工具等",
+      "subcategories": ["代码编辑器", "代码补全", "代码审查"]
+    },
+    "ai_image": {
+      "name": "AI 图像/视频",
+      "description": "AI 图像和视频生成工具，涵盖文生图、图生图、文生视频等能力",
+      "subcategories": ["图像生成", "视频生成", "图像编辑"]
+    },
+    "ai_audio": {
+      "name": "AI 音频",
+      "description": "AI 音乐和音频生成工具，涵盖音乐创作、语音合成、声音克隆等",
+      "subcategories": ["音乐生成", "语音合成", "语音克隆"]
+    },
+    "ai_writing": {
+      "name": "AI 写作/效率",
+      "description": "AI 辅助写作和效率工具，涵盖内容创作、笔记管理、办公自动化等",
+      "subcategories": ["写作助手", "笔记工具", "办公效率"]
+    }
+  }
+}

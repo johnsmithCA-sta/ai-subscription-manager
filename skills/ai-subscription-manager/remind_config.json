@@ -1,0 +1,8 @@
+{
+  "remind_days": [1, 3, 7, 14, 30],
+  "default_check_days": [7, 30],
+  "show_renewal_url": true,
+  "show_cost_info": true,
+  "alert_on_expired": true,
+  "language": "zh-CN"
+}

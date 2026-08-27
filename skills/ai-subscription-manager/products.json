@@ -1,0 +1,3109 @@
+[
+  {
+    "product_key": "chatgpt",
+    "display_name": "ChatGPT",
+    "vendor": "OpenAI",
+    "category": "ai_chat",
+    "subcategory": "通用对话",
+    "tags": [
+      "通用对话",
+      "代码生成",
+      "文档分析",
+      "图像理解",
+      "图像生成",
+      "联网搜索",
+      "文件上传",
+      "多模态",
+      "长上下文",
+      "数据分析"
+    ],
+    "plans": [
+      {
+        "tier": "Plus",
+        "price": 20.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "GPT-5 系列模型访问",
+          "DALL·E 图像生成",
+          "高级数据分析",
+          "自定义 GPTs",
+          "Voice 语音对话",
+          "文件上传与分析",
+          "深度研究(有限额度)",
+          "Codex 编程助手"
+        ]
+      },
+      {
+        "tier": "Pro 5x",
+        "price": 100.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "全部 Plus 功能",
+          "模型基本无限制",
+          "Codex 额度为 Plus 的 5 倍",
+          "最高级别深度研究",
+          "GPT-5.6 Pro 模型",
+          "优先体验新功能"
+        ]
+      },
+      {
+        "tier": "Pro 20x",
+        "price": 200.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "全部 Plus 功能",
+          "模型基本无限制",
+          "Codex 额度为 Plus 的 20 倍",
+          "最高级别深度研究",
+          "GPT-5.6 Pro 模型",
+          "适合重度开发者和创作者"
+        ]
+      },
+      {
+        "tier": "Team",
+        "price": 25.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 300.0,
+        "has_annual_discount": false,
+        "features": [
+          "更高 GPT-4 消息上限",
+          "共享 GPTs",
+          "管理员控制台",
+          "数据不用于训练",
+          "团队协作管理",
+          "按年付费"
+        ]
+      }
+    ],
+    "renewal_url": "https://chat.openai.com/account/billing",
+    "cancel_guide": "Settings → Subscription → Cancel subscription",
+    "description": "OpenAI 旗舰对话 AI 产品，支持文本/图像/代码/数据分析等多模态能力。2026年新增 Go($8/月)、Pro 5x($100/月)、Pro 20x($200/月) 等多档位。",
+    "website": "https://chat.openai.com",
+    "price_updated": "2026-08-25"
+  },
+  {
+    "product_key": "claude",
+    "display_name": "Claude",
+    "vendor": "Anthropic",
+    "category": "ai_chat",
+    "subcategory": "通用对话",
+    "tags": [
+      "通用对话",
+      "代码生成",
+      "文档分析",
+      "长上下文",
+      "多模态",
+      "文件上传",
+      "数据分析"
+    ],
+    "plans": [
+      {
+        "tier": "Pro",
+        "price": 20.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "Opus/Sonnet/Haiku 全模型访问",
+          "Claude Code 编程助手",
+          "5小时滚动窗口限制",
+          "更高用量上限",
+          "优先访问新功能"
+        ]
+      },
+      {
+        "tier": "Max 5x",
+        "price": 100.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "全部 Pro 功能",
+          "Pro 用量的 5 倍",
+          "全天主力编码工具",
+          "Claude Code 完全访问"
+        ]
+      },
+      {
+        "tier": "Max 20x",
+        "price": 200.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "全部 Pro 功能",
+          "Pro 用量的 20 倍",
+          "高强度 Agent 工作流",
+          "Claude Code 完全访问"
+        ]
+      },
+      {
+        "tier": "Team Standard",
+        "price": 25.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "Pro 级别用量",
+          "管理员控制台",
+          "用量池共享",
+          "安全策略管理",
+          "最少5人起",
+          "Claude Code 包含"
+        ]
+      }
+    ],
+    "renewal_url": "https://claude.ai/settings/billing",
+    "cancel_guide": "Settings → Subscription → Cancel subscription",
+    "description": "Anthropic 旗舰对话 AI，以长上下文和代码能力著称。2026年推出 Max 5x/20x 高额度档位和 Team 团队版。",
+    "website": "https://claude.ai",
+    "price_updated": "2026-08-20"
+  },
+  {
+    "product_key": "gemini",
+    "display_name": "Gemini (Google AI Pro)",
+    "vendor": "Google",
+    "category": "ai_chat",
+    "subcategory": "通用对话",
+    "tags": [
+      "通用对话",
+      "多模态",
+      "联网搜索",
+      "文档分析",
+      "图像生成",
+      "视频生成",
+      "文件上传",
+      "长上下文",
+      "数据分析"
+    ],
+    "plans": [
+      {
+        "tier": "Google AI Pro (Gemini Advanced)",
+        "price": 19.99,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "Gemini 2.5/3 Pro 模型",
+          "Veo 视频生成",
+          "Imagen 图像生成",
+          "NotebookLM Plus",
+          "2TB Google Drive 存储",
+          "1M token 上下文",
+          "Workspace 集成",
+          "深度研究"
+        ]
+      },
+      {
+        "tier": "Google AI Ultra",
+        "price": 249.99,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "全部 Pro 功能",
+          "更高 Veo 配额",
+          "Project Astra 视觉AI",
+          "深度研究高级额度",
+          "30TB 存储",
+          "每日1500条 Thinking 提示"
+        ]
+      }
+    ],
+    "renewal_url": "https://one.google.com/about/membership",
+    "cancel_guide": "Google One → Manage Membership → Cancel",
+    "description": "Google 旗舰 AI 助手，深度集成 Gmail/Docs/Sheets/Drive 等 Workspace 应用。AI Pro($19.99/月)含2TB存储，性价比突出。",
+    "website": "https://gemini.google.com",
+    "price_updated": "2026-08-20"
+  },
+  {
+    "product_key": "doubao",
+    "display_name": "豆包",
+    "vendor": "字节跳动",
+    "category": "ai_chat",
+    "subcategory": "通用对话",
+    "tags": [
+      "通用对话",
+      "代码生成",
+      "文档分析",
+      "图像生成",
+      "视频生成",
+      "联网搜索",
+      "文件上传",
+      "多模态",
+      "数据分析"
+    ],
+    "plans": [
+      {
+        "tier": "标准版",
+        "price": 68.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": 688.0,
+        "has_annual_discount": true,
+        "features": [
+          "豆包 2.1 Pro 模型",
+          "高峰期优先算力",
+          "5倍免费额度",
+          "100页长文档解析",
+          "500次/月图片生成",
+          "200次/月 AI PPT",
+          "100小时语音通话",
+          "Agent 办公任务"
+        ]
+      },
+      {
+        "tier": "加强版",
+        "price": 200.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": 2048.0,
+        "has_annual_discount": true,
+        "features": [
+          "标准版 4 倍额度",
+          "适合重度创作",
+          "中小企业场景",
+          "全部标准版权益"
+        ]
+      },
+      {
+        "tier": "高级版",
+        "price": 500.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": 5088.0,
+        "has_annual_discount": true,
+        "features": [
+          "标准版 10 倍额度",
+          "重度专业使用",
+          "专业创作者和小型团队",
+          "全部标准版权益"
+        ]
+      }
+    ],
+    "renewal_url": "https://www.doubao.com",
+    "cancel_guide": "App内 我的 → 会员中心 → 管理订阅",
+    "description": "字节跳动旗舰 AI 助手，月活3.8亿。基础功能永久免费，2026年6月推出三档专业版付费会员。学生认证标准版¥38/月。",
+    "website": "https://www.doubao.com",
+    "price_updated": "2026-08-20"
+  },
+  {
+    "product_key": "kimi",
+    "display_name": "Kimi",
+    "vendor": "月之暗面",
+    "category": "ai_chat",
+    "subcategory": "通用对话",
+    "tags": [
+      "通用对话",
+      "代码生成",
+      "文档分析",
+      "长上下文",
+      "联网搜索",
+      "文件上传",
+      "多模态",
+      "知识库"
+    ],
+    "plans": [
+      {
+        "tier": "Andante",
+        "price": 39.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": 468.0,
+        "has_annual_discount": true,
+        "features": [
+          "1倍 Agent 额度",
+          "1个并行任务",
+          "4倍优先生成队列",
+          "Office 文件处理",
+          "深度研究",
+          "6个定时任务",
+          "Kimi Code 可调用"
+        ]
+      },
+      {
+        "tier": "Moderato",
+        "price": 79.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": 948.0,
+        "has_annual_discount": true,
+        "features": [
+          "2倍 Agent 额度",
+          "2个并行任务",
+          "集群功能(2子任务)",
+          "梦境记忆",
+          "10个定时任务"
+        ]
+      },
+      {
+        "tier": "Allegretto",
+        "price": 159.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": 1908.0,
+        "has_annual_discount": true,
+        "features": [
+          "4倍 Agent 额度",
+          "解锁 K3 百万 Tokens 超长对话",
+          "集群功能(4子任务)",
+          "目标模式",
+          "20个定时任务"
+        ]
+      },
+      {
+        "tier": "Allegro",
+        "price": 559.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "10倍 Agent 额度",
+          "K3 百万 Tokens 超长对话",
+          "集群功能(8子任务)",
+          "最高并发",
+          "25个定时任务"
+        ]
+      }
+    ],
+    "renewal_url": "https://kimi.com",
+    "cancel_guide": "App内 我的 → 会员中心 → 管理订阅",
+    "description": "月之暗面旗舰 AI 产品，K3 模型为 2.8T 参数 MoE，支持100万 token 上下文。国内价目最透明的 AI 会员体系之一。",
+    "website": "https://kimi.com",
+    "price_updated": "2026-08-20"
+  },
+  {
+    "product_key": "zhipu_qingyan",
+    "display_name": "智谱清言",
+    "vendor": "智谱AI",
+    "category": "ai_chat",
+    "subcategory": "通用对话",
+    "tags": [
+      "通用对话",
+      "代码生成",
+      "文档分析",
+      "图像生成",
+      "联网搜索",
+      "文件上传",
+      "多模态",
+      "长上下文"
+    ],
+    "plans": [
+      {
+        "tier": "连续包月",
+        "price": 19.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "GLM 旗舰模型",
+          "更高并发",
+          "更多对话额度",
+          "CogView 绘画"
+        ]
+      },
+      {
+        "tier": "单月卡",
+        "price": 59.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": 399.0,
+        "has_annual_discount": true,
+        "features": [
+          "GLM 旗舰模型",
+          "高并发",
+          "完整对话额度",
+          "年卡¥399"
+        ]
+      }
+    ],
+    "renewal_url": "https://chatglm.cn",
+    "cancel_guide": "App Store 订阅管理或 App 内设置",
+    "description": "智谱AI旗舰对话产品，基于 GLM 系列模型。免费版每日200万Token额度，专业版¥19/月起。另有 Coding Plan 编程订阅(Lite ¥118/月起)。",
+    "website": "https://chatglm.cn",
+    "price_updated": "2026-08-20"
+  },
+  {
+    "product_key": "ernie",
+    "display_name": "文心一言(文心)",
+    "vendor": "百度",
+    "category": "ai_chat",
+    "subcategory": "通用对话",
+    "tags": [
+      "通用对话",
+      "联网搜索",
+      "文档分析",
+      "图像生成",
+      "文件上传",
+      "多模态"
+    ],
+    "plans": [
+      {
+        "tier": "免费",
+        "price": 0.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "文心系列最新模型",
+          "深度搜索功能",
+          "全部 PC 和 APP 端体验",
+          "基础对话无限使用"
+        ]
+      }
+    ],
+    "renewal_url": "https://yiyan.baidu.com",
+    "cancel_guide": "2025年4月起已全面免费开放，原付费会员已启动退费",
+    "description": "百度旗舰 AI 对话产品。2025年4月1日起全面免费开放，原专业版(¥59.9/月)已取消。支持深度搜索功能。",
+    "website": "https://yiyan.baidu.com",
+    "price_updated": "2026-08-20"
+  },
+  {
+    "product_key": "qwen",
+    "display_name": "通义千问",
+    "vendor": "阿里巴巴",
+    "category": "ai_chat",
+    "subcategory": "通用对话",
+    "tags": [
+      "通用对话",
+      "代码生成",
+      "文档分析",
+      "联网搜索",
+      "文件上传",
+      "多模态",
+      "数据分析",
+      "长上下文"
+    ],
+    "plans": [
+      {
+        "tier": "高级",
+        "price": 19.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": 200.0,
+        "has_annual_discount": true,
+        "features": [
+          "Qwen 旗舰模型",
+          "2倍额度",
+          "办公助理功能",
+          "本地+云端模式",
+          "技能(Skill)和连接器"
+        ]
+      },
+      {
+        "tier": "精英",
+        "price": 49.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": 568.0,
+        "has_annual_discount": true,
+        "features": [
+          "5倍额度",
+          "全部高级功能",
+          "PPT/网页/应用生成",
+          "适合高频办公用户"
+        ]
+      },
+      {
+        "tier": "旗舰",
+        "price": 128.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": 1499.0,
+        "has_annual_discount": true,
+        "features": [
+          "20倍额度",
+          "全部功能无限制",
+          "重度专业用户",
+          "完整办公套件"
+        ]
+      }
+    ],
+    "renewal_url": "https://tongyi.aliyun.com",
+    "cancel_guide": "App内 办公助理 → 右上角四角星 → 会员管理",
+    "description": "阿里旗舰 AI 产品，2026年8月推出办公助理付费会员(高级¥19/月起)。基础功能免费，AI视频生成单独充值额度(10个¥26起)。",
+    "website": "https://tongyi.aliyun.com",
+    "price_updated": "2026-08-20"
+  },
+  {
+    "product_key": "cursor",
+    "display_name": "Cursor",
+    "vendor": "Anysphere",
+    "category": "ai_code",
+    "subcategory": "代码编辑器",
+    "tags": [
+      "代码生成",
+      "文档分析",
+      "API 接入",
+      "多模态",
+      "长上下文"
+    ],
+    "plans": [
+      {
+        "tier": "Pro",
+        "price": 20.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "无限代码补全",
+          "$20 第三方模型额度",
+          "Cursor Models  generously",
+          "后台 Agent",
+          "无限 Tab 补全"
+        ]
+      },
+      {
+        "tier": "Pro+",
+        "price": 60.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "Pro 全部功能",
+          "$70 第三方模型额度",
+          "使用限制提升 3 倍",
+          "所有顶级模型访问"
+        ]
+      },
+      {
+        "tier": "Ultra",
+        "price": 200.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "Pro 全部功能",
+          "$400 第三方模型额度",
+          "使用限制放宽 20 倍",
+          "新模型优先访问"
+        ]
+      },
+      {
+        "tier": "Teams Standard",
+        "price": 40.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 384.0,
+        "has_annual_discount": true,
+        "features": [
+          "$20 额度/用户/月",
+          "管理员控制台",
+          "团队管理",
+          "500 requests/用户/月"
+        ]
+      }
+    ],
+    "renewal_url": "https://www.cursor.com/settings",
+    "cancel_guide": "Settings → Subscription → Cancel",
+    "description": "AI-native 代码编辑器，2026年ARR超20亿美元。双资源池模式(Cursor Models + Other Models)，Pro $20/月起。",
+    "website": "https://www.cursor.com",
+    "price_updated": "2026-08-20"
+  },
+  {
+    "product_key": "github_copilot",
+    "display_name": "GitHub Copilot",
+    "vendor": "GitHub / Microsoft",
+    "category": "ai_code",
+    "subcategory": "代码补全",
+    "tags": [
+      "代码生成",
+      "API 接入",
+      "插件生态",
+      "团队协作",
+      "代码审查"
+    ],
+    "plans": [
+      {
+        "tier": "Free",
+        "price": 0.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "2,000次代码补全/月",
+          "50次高级请求",
+          "基础聊天",
+          "VS Code/JetBrains/Neovim/Xcode"
+        ]
+      },
+      {
+        "tier": "Pro",
+        "price": 10.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "无限代码补全",
+          "1,500 AI Credits/月(含基础+弹性)",
+          "300次高级请求",
+          "Copilot Agent",
+          "多模型访问",
+          "超额$0.04/请求"
+        ]
+      },
+      {
+        "tier": "Pro+",
+        "price": 39.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "Pro 全部功能",
+          "7,000 AI Credits/月",
+          "1,500次高级请求",
+          "Claude Opus/o3 等全模型",
+          "Copilot coding agent"
+        ]
+      },
+      {
+        "tier": "Business",
+        "price": 19.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "组织管理",
+          "IP 赔偿保障",
+          "策略控制",
+          "审计日志",
+          "SAML SSO",
+          "集中许可证管理"
+        ]
+      }
+    ],
+    "renewal_url": "https://github.com/settings/billing",
+    "cancel_guide": "Settings → Billing → Cancel subscription",
+    "description": "全球最大 AI 编程助手，用户超2000万。2026年6月转向 AI Credits 计费(1 credit=$0.01)，代码补全免费不限。Pro $10/月性价比最高。",
+    "website": "https://github.com/features/copilot",
+    "price_updated": "2026-08-20"
+  },
+  {
+    "product_key": "windsurf",
+    "display_name": "Windsurf",
+    "vendor": "Codeium (Cognition)",
+    "category": "ai_code",
+    "subcategory": "代码编辑器",
+    "tags": [
+      "代码生成",
+      "文档分析",
+      "API 接入",
+      "插件生态"
+    ],
+    "plans": [
+      {
+        "tier": "Free",
+        "price": 0.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "25 prompts/月",
+          "无限 SWE-1 Lite",
+          "无限 Tab 补全",
+          "无限 inline 编辑",
+          "1次部署/天"
+        ]
+      },
+      {
+        "tier": "Pro",
+        "price": 15.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "500 credits/月",
+          "全部高级模型访问",
+          "完整 Cascade 体验",
+          "5次部署/天",
+          "可购买额外 credits($10/250)"
+        ]
+      },
+      {
+        "tier": "Teams",
+        "price": 30.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "500 credits/用户/月",
+          "集中计费",
+          "管理仪表板",
+          "团队管理"
+        ]
+      }
+    ],
+    "renewal_url": "https://windsurf.com/settings/billing",
+    "cancel_guide": "Settings → Subscription → Cancel",
+    "description": "原 Codeium，被 Cognition(Devin 母公司)收购后更名。AI 代码编辑器，免费版提供无限补全和25 prompts/月。Pro $15/月，性价比优于 Cursor。",
+    "website": "https://windsurf.com",
+    "price_updated": "2026-08-20"
+  },
+  {
+    "product_key": "codegeex",
+    "display_name": "CodeGeeX",
+    "vendor": "智谱AI / 清华大学",
+    "category": "ai_code",
+    "subcategory": "代码补全",
+    "tags": [
+      "代码生成",
+      "代码审查",
+      "API 接入"
+    ],
+    "plans": [
+      {
+        "tier": "个人免费版",
+        "price": 0.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "代码生成与补全(无限)",
+          "代码解释与优化",
+          "100+编程语言",
+          "VS Code/JetBrains 插件",
+          "跨语言代码翻译",
+          "开源可本地部署"
+        ]
+      },
+      {
+        "tier": "企业版",
+        "price": null,
+        "currency": "CNY",
+        "billing_cycle": "custom",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "高并发 API",
+          "私有化部署",
+          "定制化训练与微调",
+          "高级技术支持",
+          "数据安全合规"
+        ]
+      }
+    ],
+    "renewal_url": "https://codegeex.cn",
+    "cancel_guide": "个人版免费无需取消；企业版联系官方商务",
+    "description": "智谱AI出品，开源免费AI编程助手。个人开发者完全免费，支持100+编程语言。企业版私有化部署需联系商务。",
+    "website": "https://codegeex.cn",
+    "price_updated": "2026-08-20"
+  },
+  {
+    "product_key": "midjourney",
+    "display_name": "Midjourney",
+    "vendor": "Midjourney Inc.",
+    "category": "ai_image",
+    "subcategory": "图像生成",
+    "tags": [
+      "图像生成",
+      "多模态",
+      "自定义指令"
+    ],
+    "plans": [
+      {
+        "tier": "Basic",
+        "price": 10.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 96.0,
+        "has_annual_discount": true,
+        "features": [
+          "3.3 快速 GPU 小时/月(约200张)",
+          "SD 视频生成",
+          "额外GPU时间$4/小时",
+          "无限 Relax 图像(不含)",
+          "年付$8/月"
+        ]
+      },
+      {
+        "tier": "Standard",
+        "price": 30.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 288.0,
+        "has_annual_discount": true,
+        "features": [
+          "15 快速 GPU 小时/月",
+          "无限 Relax 图像",
+          "HD 视频生成",
+          "Stealth Mode(不含)",
+          "额外GPU时间$4/小时",
+          "年付$24/月"
+        ]
+      },
+      {
+        "tier": "Pro",
+        "price": 60.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 576.0,
+        "has_annual_discount": true,
+        "features": [
+          "30 快速 GPU 小时/月",
+          "无限 Relax 图像和视频",
+          "HD 视频生成",
+          "Stealth Mode(私密生成)",
+          "12个并发任务",
+          "年付$48/月"
+        ]
+      },
+      {
+        "tier": "Mega",
+        "price": 120.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 1152.0,
+        "has_annual_discount": true,
+        "features": [
+          "60 快速 GPU 小时/月",
+          "无限 Relax 图像和视频",
+          "HD 视频生成",
+          "Stealth Mode",
+          "12个并发任务",
+          "年付$96/月"
+        ]
+      }
+    ],
+    "renewal_url": "https://www.midjourney.com/manage-subscription",
+    "cancel_guide": "Manage Subscription → Cancel Plan (关闭自动续费)",
+    "description": "顶级AI图像生成工具，V8.1模型。所有付费计划含商业使用权，年付享20%折扣。Standard $30/月为性价比最优选择。",
+    "website": "https://www.midjourney.com",
+    "price_updated": "2026-08-20"
+  },
+  {
+    "product_key": "dalle",
+    "display_name": "DALL·E (via ChatGPT)",
+    "vendor": "OpenAI",
+    "category": "ai_image",
+    "subcategory": "图像生成",
+    "tags": [
+      "图像生成",
+      "图像理解",
+      "多模态"
+    ],
+    "plans": [
+      {
+        "tier": "含在 ChatGPT Plus 中",
+        "price": 20.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "通过 ChatGPT 界面使用",
+          "文本到图像生成",
+          "图像编辑和变体",
+          "与对话上下文结合",
+          "含在 Plus 订阅中"
+        ]
+      }
+    ],
+    "renewal_url": "https://chat.openai.com/account/billing",
+    "cancel_guide": "通过 ChatGPT 订阅管理，Settings → Subscription",
+    "description": "OpenAI 图像生成模型，集成在 ChatGPT 中。Plus($20/月)即可使用，无需单独订阅。",
+    "website": "https://chat.openai.com",
+    "price_updated": "2026-08-20"
+  },
+  {
+    "product_key": "stable_diffusion",
+    "display_name": "Stable Diffusion",
+    "vendor": "Stability AI",
+    "category": "ai_image",
+    "subcategory": "图像生成",
+    "tags": [
+      "图像生成",
+      "API 接入",
+      "多模态"
+    ],
+    "plans": [
+      {
+        "tier": "自托管(开源)",
+        "price": 0.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "开源模型免费下载",
+          "零边际成本生成",
+          "完全自定义",
+          "LoRA 微调",
+          "数据隐私完全掌控",
+          "需自备 GPU(8GB+ VRAM)"
+        ]
+      },
+      {
+        "tier": "API (按量付费)",
+        "price": 0.01,
+        "currency": "USD",
+        "billing_cycle": "pay_per_use",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "1 credit = $0.01",
+          "Stable Image Ultra: $0.08/张",
+          "SD 3.5 Large: $0.065/张",
+          "SD 3.5 Turbo: $0.04/张",
+          "Stable Image Core: $0.03/张",
+          "注册送25 credits"
+        ]
+      }
+    ],
+    "renewal_url": "https://platform.stability.ai/account",
+    "cancel_guide": "API 按量计费，无订阅；在 Account 页面管理 credits",
+    "description": "最强开源图像生成模型，支持自托管(免费)和API按量付费。年收入<$100万的组织可免费商用。",
+    "website": "https://platform.stability.ai",
+    "price_updated": "2026-08-20"
+  },
+  {
+    "product_key": "runway",
+    "display_name": "Runway",
+    "vendor": "Runway AI",
+    "category": "ai_image",
+    "subcategory": "视频生成",
+    "tags": [
+      "视频生成",
+      "图像生成",
+      "多模态"
+    ],
+    "plans": [
+      {
+        "tier": "Free",
+        "price": 0.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "125 一次性 credits",
+          "Gen-4 Turbo 和 Gen-4",
+          "5GB 存储",
+          "3个视频项目",
+          "有水印"
+        ]
+      },
+      {
+        "tier": "Standard",
+        "price": 12.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 144.0,
+        "has_annual_discount": true,
+        "features": [
+          "625 credits/月",
+          "全部 AI 应用和 Gen-4.5",
+          "100GB 存储",
+          "无限视频项目",
+          "去水印",
+          "4K 导出",
+          "5个团队成员",
+          "年付$12/月"
+        ]
+      },
+      {
+        "tier": "Pro",
+        "price": 28.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 336.0,
+        "has_annual_discount": true,
+        "features": [
+          "2,250 credits/月",
+          "全部 Standard 功能",
+          "500GB 存储",
+          "10个团队成员",
+          "自定义语音",
+          "ProRes 输出",
+          "年付$28/月"
+        ]
+      },
+      {
+        "tier": "Unlimited",
+        "price": 76.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 912.0,
+        "has_annual_discount": true,
+        "features": [
+          "无限生成(低速)",
+          "2,250 credits/月",
+          "全部 Pro 功能",
+          "Explore Mode",
+          "年付$76/月"
+        ]
+      }
+    ],
+    "renewal_url": "https://app.runwayml.com/settings/billing",
+    "cancel_guide": "Settings → Billing → Cancel subscription",
+    "description": "领先 AI 视频生成平台，Gen-4/4.5 模型。Standard $12/月起(年付)，credits按使用量消耗。所有付费计划支持商用。",
+    "website": "https://runwayml.com",
+    "price_updated": "2026-08-20"
+  },
+  {
+    "product_key": "suno",
+    "display_name": "Suno",
+    "vendor": "Suno AI",
+    "category": "ai_audio",
+    "subcategory": "音乐生成",
+    "tags": [
+      "音乐生成",
+      "语音合成"
+    ],
+    "plans": [
+      {
+        "tier": "Free",
+        "price": 0.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "每日有限次数生成",
+          "非商用"
+        ]
+      },
+      {
+        "tier": "Pro",
+        "price": 10.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 96.0,
+        "has_annual_discount": true,
+        "features": [
+          "更多生成额度",
+          "商用授权",
+          "更高音质",
+          "优先生成",
+          "年付$8/月"
+        ]
+      },
+      {
+        "tier": "Premier",
+        "price": 30.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 288.0,
+        "has_annual_discount": true,
+        "features": [
+          "Pro 全部功能",
+          "更大生成额度",
+          "商用授权",
+          "最高优先级",
+          "年付$24/月"
+        ]
+      }
+    ],
+    "renewal_url": "https://suno.com/settings/billing",
+    "cancel_guide": "Settings → Subscription → Cancel",
+    "description": "领先 AI 音乐生成工具，支持文本生成音乐和歌曲。Pro $10/月含商用授权，Premier $30/月适合重度创作者。",
+    "website": "https://suno.com",
+    "price_updated": "2026-08-20"
+  },
+  {
+    "product_key": "udio",
+    "display_name": "Udio",
+    "vendor": "Udio AI",
+    "category": "ai_audio",
+    "subcategory": "音乐生成",
+    "tags": [
+      "音乐生成",
+      "语音合成"
+    ],
+    "plans": [
+      {
+        "tier": "Standard",
+        "price": 10.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 96.0,
+        "has_annual_discount": true,
+        "features": [
+          "基础生成额度",
+          "商用授权",
+          "标准音质",
+          "年付$8/月"
+        ]
+      },
+      {
+        "tier": "Pro",
+        "price": 30.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 288.0,
+        "has_annual_discount": true,
+        "features": [
+          "更大生成额度",
+          "商用授权",
+          "更高音质",
+          "优先生成",
+          "年付$24/月"
+        ]
+      }
+    ],
+    "renewal_url": "https://www.udio.com/settings",
+    "cancel_guide": "Settings → Subscription → Cancel",
+    "description": "AI 音乐生成平台，支持多种音乐风格。Standard $10/月，Pro $30/月。",
+    "website": "https://www.udio.com",
+    "price_updated": "2026-08-20"
+  },
+  {
+    "product_key": "notion_ai",
+    "display_name": "Notion AI",
+    "vendor": "Notion",
+    "category": "ai_writing",
+    "subcategory": "笔记工具",
+    "tags": [
+      "文档分析",
+      "通用对话",
+      "知识库",
+      "团队协作",
+      "数据分析",
+      "自定义指令"
+    ],
+    "plans": [
+      {
+        "tier": "Plus (含 AI 试用)",
+        "price": 10.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 96.0,
+        "has_annual_discount": true,
+        "features": [
+          "无限文件上传",
+          "30天页面历史",
+          "无限访客",
+          "AI 功能仅限试用",
+          "年付$8/月"
+        ]
+      },
+      {
+        "tier": "Business (含完整 AI)",
+        "price": 20.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 240.0,
+        "has_annual_discount": true,
+        "features": [
+          "完整 Notion AI(含 Agent)",
+          "AI 会议纪要",
+          "企业搜索",
+          "SAML SSO",
+          "90天页面历史",
+          "自定义自动化",
+          "年付$15/月"
+        ]
+      }
+    ],
+    "renewal_url": "https://www.notion.so/settings/billing",
+    "cancel_guide": "Settings & Members → Billing → Cancel subscription",
+    "description": "Notion 内置 AI 助手，2026年已将完整AI功能整合至Business计划($20/用户/月)。原$8/月独立附加订阅已停售。",
+    "website": "https://www.notion.so",
+    "price_updated": "2026-08-20"
+  },
+  {
+    "product_key": "jasper",
+    "display_name": "Jasper",
+    "vendor": "Jasper AI",
+    "category": "ai_writing",
+    "subcategory": "写作助手",
+    "tags": [
+      "通用对话",
+      "团队协作",
+      "自定义指令",
+      "知识库"
+    ],
+    "plans": [
+      {
+        "tier": "Creator",
+        "price": 49.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 468.0,
+        "has_annual_discount": true,
+        "features": [
+          "1个品牌声音",
+          "SEO 模式",
+          "基础模板",
+          "50+写作模板",
+          "25+语言",
+          "年付$39/月"
+        ]
+      },
+      {
+        "tier": "Pro",
+        "price": 69.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 708.0,
+        "has_annual_discount": true,
+        "features": [
+          "2个品牌声音",
+          "5个知识资产",
+          "5个用户",
+          "协作功能",
+          "高级分析",
+          "7天免费试用",
+          "年付$59/月/5用户"
+        ]
+      },
+      {
+        "tier": "Business",
+        "price": null,
+        "currency": "USD",
+        "billing_cycle": "custom",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "无限品牌声音",
+          "无限知识资产",
+          "自定义 AI Agent",
+          "Jasper Grid",
+          "API 访问",
+          "高级管理控制",
+          "专属客户经理"
+        ]
+      }
+    ],
+    "renewal_url": "https://app.jasper.ai/settings/billing",
+    "cancel_guide": "Settings → Billing → Cancel subscription",
+    "description": "企业级AI营销写作平台。Creator $49/月，Pro $69/月(年付$59/月含5用户)。专注品牌声音和内容营销工作流。",
+    "website": "https://www.jasper.ai",
+    "price_updated": "2026-08-20"
+  },
+  {
+    "product_key": "perplexity",
+    "display_name": "Perplexity",
+    "vendor": "Perplexity AI",
+    "category": "ai_chat",
+    "subcategory": "搜索增强",
+    "tags": [
+      "通用对话",
+      "联网搜索",
+      "文档分析",
+      "文件上传",
+      "多模态",
+      "图像生成"
+    ],
+    "plans": [
+      {
+        "tier": "Pro",
+        "price": 20.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 200.0,
+        "has_annual_discount": true,
+        "features": [
+          "Pro Search（每周限额）",
+          "前沿模型选择（GPT-5/Claude/Gemini）",
+          "Deep Research",
+          "文件上传",
+          "图像生成",
+          "Comet Plus"
+        ]
+      },
+      {
+        "tier": "Max",
+        "price": 200.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 2000.0,
+        "has_annual_discount": true,
+        "features": [
+          "全部 Pro 功能",
+          "后台自主 Agent",
+          "Perplexity Computer",
+          "无限 Labs",
+          "视频生成"
+        ]
+      },
+      {
+        "tier": "Education Pro",
+        "price": 10.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "Pro 全部功能",
+          "需学生/教师身份验证"
+        ]
+      }
+    ],
+    "renewal_url": "https://www.perplexity.ai/settings",
+    "cancel_guide": "Settings → Account → Manage Subscription → Cancel",
+    "description": "引用优先的 AI 搜索和研究引擎，每次回答都附带来源链接。2026年 Comet 浏览器免费开放，Pro 支持多模型选择和深度研究。",
+    "website": "https://www.perplexity.ai",
+    "price_updated": "2026-08-22"
+  },
+  {
+    "product_key": "microsoft_copilot",
+    "display_name": "Microsoft 365 Copilot",
+    "vendor": "Microsoft",
+    "category": "ai_writing",
+    "subcategory": "办公效率",
+    "tags": [
+      "通用对话",
+      "文档分析",
+      "数据分析",
+      "团队协作",
+      "多模态"
+    ],
+    "plans": [
+      {
+        "tier": "Premium (个人)",
+        "price": 19.99,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "Word/Excel/PowerPoint/Outlook 中 Copilot",
+          "1TB OneDrive",
+          "高级 Office 应用",
+          "优先模型访问"
+        ]
+      },
+      {
+        "tier": "Business",
+        "price": 21.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "Office 全应用 Copilot",
+          "Teams Copilot",
+          "Microsoft Graph 数据接入",
+          "企业数据保护",
+          "需 M365 基础许可"
+        ]
+      },
+      {
+        "tier": "Enterprise",
+        "price": 30.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "全部 Business 功能",
+          "Researcher/Analyst Agent",
+          "Copilot Studio",
+          "高级安全合规"
+        ]
+      }
+    ],
+    "renewal_url": "https://account.microsoft.com/services",
+    "cancel_guide": "Microsoft 账户 → 服务和订阅 → 管理 → 取消订阅",
+    "description": "Microsoft 365 生态中的 AI 助手，深度集成 Word/Excel/PowerPoint/Outlook/Teams。个人版 Copilot Pro 已整合进 M365 Premium。",
+    "website": "https://copilot.microsoft.com",
+    "price_updated": "2026-08-22"
+  },
+  {
+    "product_key": "canva",
+    "display_name": "Canva",
+    "vendor": "Canva",
+    "category": "ai_image",
+    "subcategory": "图像编辑",
+    "tags": [
+      "图像生成",
+      "多模态",
+      "团队协作",
+      "插件生态"
+    ],
+    "plans": [
+      {
+        "tier": "Pro",
+        "price": 15.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 120.0,
+        "has_annual_discount": true,
+        "features": [
+          "3.6M+ 模板",
+          "141M+ 高级素材",
+          "AI Magic Studio",
+          "背景移除",
+          "Magic Resize",
+          "品牌套件",
+          "100GB 存储"
+        ]
+      },
+      {
+        "tier": "Business (Teams)",
+        "price": 25.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 250.0,
+        "has_annual_discount": true,
+        "features": [
+          "全部 Pro 功能",
+          "团队品牌控制",
+          "3+ 席位",
+          "共享工作空间",
+          "审批工作流"
+        ]
+      }
+    ],
+    "renewal_url": "https://www.canva.com/settings/billing",
+    "cancel_guide": "Account Settings → Billing & teams → Cancel subscription",
+    "description": "全球最流行的在线设计平台，集成 AI Magic Studio 提供图像生成、文案写作、一键设计等能力。",
+    "website": "https://www.canva.com",
+    "price_updated": "2026-08-22"
+  },
+  {
+    "product_key": "adobe_cc",
+    "display_name": "Adobe Creative Cloud",
+    "vendor": "Adobe",
+    "category": "ai_image",
+    "subcategory": "图像编辑",
+    "tags": [
+      "图像生成",
+      "图像理解",
+      "视频生成",
+      "团队协作",
+      "多模态"
+    ],
+    "plans": [
+      {
+        "tier": "Express Premium",
+        "price": 9.99,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "Adobe Express 全功能",
+          "Firefly 标准生成",
+          "基础模板和素材"
+        ]
+      },
+      {
+        "tier": "Creative Cloud Pro",
+        "price": 69.99,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "20+ 桌面应用（PS/AI/PR/LR 等）",
+          "Firefly 标准生成无限",
+          "4000 高级生成积分/月",
+          "100GB 云存储"
+        ]
+      },
+      {
+        "tier": "Single App",
+        "price": 22.99,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "任选 1 款桌面应用",
+          "Firefly 标准生成",
+          "100GB 存储"
+        ]
+      },
+      {
+        "tier": "Student (Pro)",
+        "price": 19.99,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "Creative Cloud Pro 全部功能",
+          "需学生/教师验证",
+          "首年优惠价"
+        ]
+      }
+    ],
+    "renewal_url": "https://account.adobe.com/plans",
+    "cancel_guide": "Adobe Account → Plans → Manage plan → Cancel your plan",
+    "description": "行业标准创意工具套件，集成 Firefly 生成式 AI。包含 Photoshop、Illustrator、Premiere Pro 等 20+ 应用。",
+    "website": "https://www.adobe.com/creativecloud",
+    "price_updated": "2026-08-22"
+  },
+  {
+    "product_key": "elevenlabs",
+    "display_name": "ElevenLabs",
+    "vendor": "ElevenLabs Inc.",
+    "category": "ai_audio",
+    "subcategory": "语音合成",
+    "tags": [
+      "语音合成",
+      "音乐生成",
+      "API 接入",
+      "多模态"
+    ],
+    "plans": [
+      {
+        "tier": "Starter",
+        "price": 6.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 60.0,
+        "has_annual_discount": true,
+        "features": [
+          "30,000 积分/月",
+          "商业授权",
+          "即时声音克隆",
+          "配音工作室",
+          "20 个项目"
+        ]
+      },
+      {
+        "tier": "Creator",
+        "price": 22.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 220.0,
+        "has_annual_discount": true,
+        "features": [
+          "121,000 积分/月",
+          "专业声音克隆",
+          "192kbps 高质量音频",
+          "API 接入",
+          "30 个声音槽位"
+        ]
+      },
+      {
+        "tier": "Pro",
+        "price": 99.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 990.0,
+        "has_annual_discount": true,
+        "features": [
+          "600,000 积分/月",
+          "44.1kHz PCM/WAV",
+          "160 个声音槽位",
+          "高级音频分析",
+          "优先处理"
+        ]
+      },
+      {
+        "tier": "Scale",
+        "price": 299.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 2990.0,
+        "has_annual_discount": true,
+        "features": [
+          "1,800,000 积分/月",
+          "3 席位",
+          "3 个专业声音克隆",
+          "660 声音槽位"
+        ]
+      }
+    ],
+    "renewal_url": "https://elevenlabs.io/app/subscription",
+    "cancel_guide": "Profile → Subscription → Manage → Cancel plan",
+    "description": "全球最佳 AI 语音合成和声音克隆平台，支持 29 种语言，广泛用于有声书、播客、视频配音。",
+    "website": "https://elevenlabs.io",
+    "price_updated": "2026-08-22"
+  },
+  {
+    "product_key": "grammarly",
+    "display_name": "Grammarly",
+    "vendor": "Grammarly Inc.",
+    "category": "ai_writing",
+    "subcategory": "写作助手",
+    "tags": [
+      "通用对话",
+      "文档分析",
+      "团队协作",
+      "插件生态"
+    ],
+    "plans": [
+      {
+        "tier": "Pro (Annual)",
+        "price": 12.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 144.0,
+        "has_annual_discount": true,
+        "features": [
+          "高级语法和拼写检查",
+          "全句重写",
+          "语气调整",
+          "抄袭检测",
+          "AI 写作（2000 prompts/月）",
+          "品牌语气/风格指南"
+        ]
+      },
+      {
+        "tier": "Pro (Monthly)",
+        "price": 30.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "Pro 全部功能",
+          "按月付费，无年度承诺"
+        ]
+      },
+      {
+        "tier": "Pro (Quarterly)",
+        "price": 20.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 60.0,
+        "has_annual_discount": true,
+        "features": [
+          "Pro 全部功能",
+          "按季度付费"
+        ]
+      }
+    ],
+    "renewal_url": "https://www.grammarly.com/subscriptions",
+    "cancel_guide": "Account → Subscription → Cancel Subscription",
+    "description": "全球使用最广泛的英文写作辅助工具，2026年将 Premium 和 Business 合并为 Pro，集成 AI 生成写作能力。",
+    "website": "https://www.grammarly.com",
+    "price_updated": "2026-08-22"
+  },
+  {
+    "product_key": "leonardo_ai",
+    "display_name": "Leonardo AI",
+    "vendor": "Canva (Leonardo AI)",
+    "category": "ai_image",
+    "subcategory": "图像生成",
+    "tags": [
+      "图像生成",
+      "视频生成",
+      "API 接入",
+      "自定义指令"
+    ],
+    "plans": [
+      {
+        "tier": "Essential",
+        "price": 12.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "8,500 tokens/月 + 25,500 滚动额度",
+          "私密生成",
+          "2 并发生成",
+          "~10 个个人模型",
+          "增强画质"
+        ]
+      },
+      {
+        "tier": "Premium",
+        "price": 30.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "25,000 tokens/月 + 75,000 滚动",
+          "第一方模型无限 relaxed 生成",
+          "3 并发生成",
+          "多个自定义模型",
+          "视频生成"
+        ]
+      },
+      {
+        "tier": "Ultimate",
+        "price": 60.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "60,000 tokens/月 + 180,000 滚动",
+          "无限 relaxed 视频生成",
+          "6 并发生成",
+          "最高优先级",
+          "全部模型访问"
+        ]
+      }
+    ],
+    "renewal_url": "https://app.leonardo.ai/settings/billing",
+    "cancel_guide": "Settings → Billing → Manage Subscription → Cancel",
+    "description": "快速可控的 AI 图像生成平台，支持自定义模型微调、视频生成和多模型聚合（Flux/Veo/Ideogram 等）。已被 Canva 收购。",
+    "website": "https://leonardo.ai",
+    "price_updated": "2026-08-22"
+  },
+  {
+    "product_key": "synthesia",
+    "display_name": "Synthesia",
+    "vendor": "Synthesia",
+    "category": "ai_image",
+    "subcategory": "视频生成",
+    "tags": [
+      "视频生成",
+      "语音合成",
+      "团队协作",
+      "多模态"
+    ],
+    "plans": [
+      {
+        "tier": "Starter",
+        "price": 29.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 216.0,
+        "has_annual_discount": true,
+        "features": [
+          "10 分钟视频/月",
+          "125+ AI 数字人",
+          "无水印",
+          "基础模板",
+          "120 分钟/年（年付）"
+        ]
+      },
+      {
+        "tier": "Creator",
+        "price": 89.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 768.0,
+        "has_annual_discount": true,
+        "features": [
+          "更高视频时长",
+          "个人数字人",
+          "API 接入",
+          "高级模板",
+          "360 分钟/年（年付）"
+        ]
+      }
+    ],
+    "renewal_url": "https://www.synthesia.io/billing",
+    "cancel_guide": "Settings → Billing → Cancel plan",
+    "description": "AI 数字人视频生成平台，无需摄影机和演员即可制作专业培训、营销和教学视频。支持 140+ 语言。",
+    "website": "https://www.synthesia.io",
+    "price_updated": "2026-08-22"
+  },
+  {
+    "product_key": "replit",
+    "display_name": "Replit",
+    "vendor": "Replit",
+    "category": "ai_code",
+    "subcategory": "代码编辑器",
+    "tags": [
+      "代码生成",
+      "API 接入",
+      "团队协作",
+      "数据分析"
+    ],
+    "plans": [
+      {
+        "tier": "Core",
+        "price": 25.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 240.0,
+        "has_annual_discount": true,
+        "features": [
+          "$25 使用积分/月",
+          "Replit AI Agent 完整访问",
+          "5 协作者",
+          "2 并行 Agent",
+          "无限工作区",
+          "去除品牌标识"
+        ]
+      },
+      {
+        "tier": "Pro",
+        "price": 100.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 1140.0,
+        "has_annual_discount": true,
+        "features": [
+          "$100 使用积分/月",
+          "15 位构建者 + 50 查看者",
+          "10 并行 Agent",
+          "积分滚动一个月",
+          "高级 AI 模型",
+          "优先支持"
+        ]
+      }
+    ],
+    "renewal_url": "https://replit.com/pricing",
+    "cancel_guide": "Account Settings → Subscription → Cancel",
+    "description": "云端 AI 编程平台，内置 Agent 可自主构建应用。2026年 Teams 计划已整合进 Core/Pro，按使用量计费。",
+    "website": "https://replit.com",
+    "price_updated": "2026-08-22"
+  },
+  {
+    "product_key": "descript",
+    "display_name": "Descript",
+    "vendor": "Descript",
+    "category": "ai_audio",
+    "subcategory": "语音合成",
+    "tags": [
+      "语音合成",
+      "视频生成",
+      "团队协作",
+      "多模态"
+    ],
+    "plans": [
+      {
+        "tier": "Hobbyist",
+        "price": 24.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 192.0,
+        "has_annual_discount": true,
+        "features": [
+          "10 小时媒体/月",
+          "400 AI 积分",
+          "1080p 无水印导出",
+          "Underlord AI 协同编辑",
+          "Studio Sound",
+          "AI 语音克隆"
+        ]
+      },
+      {
+        "tier": "Creator",
+        "price": 35.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 288.0,
+        "has_annual_discount": true,
+        "features": [
+          "30 小时媒体/月",
+          "800 AI 积分",
+          "4K 导出",
+          "完整 AI 工具套件",
+          "无限素材库",
+          "5 小时远程录制"
+        ]
+      },
+      {
+        "tier": "Business",
+        "price": 65.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 600.0,
+        "has_annual_discount": true,
+        "features": [
+          "40 小时媒体/月",
+          "1500 AI 积分",
+          "30+ 语言翻译",
+          "品牌工作室",
+          "自定义 AI 数字人",
+          "优先支持"
+        ]
+      }
+    ],
+    "renewal_url": "https://web.descript.com/settings",
+    "cancel_guide": "Settings → Billing → Cancel plan",
+    "description": "基于文本编辑的音视频编辑工具，支持转录、AI 语音克隆、Studio Sound 降噪和 Underlord AI 协同编辑。播客和 YouTuber 常用。",
+    "website": "https://www.descript.com",
+    "price_updated": "2026-08-22"
+  },
+  {
+    "product_key": "coze",
+    "display_name": "扣子 (Coze)",
+    "vendor": "字节跳动",
+    "category": "ai_chat",
+    "subcategory": "Agent平台",
+    "tags": [
+      "通用对话",
+      "代码生成",
+      "图像生成",
+      "视频生成",
+      "联网搜索",
+      "文件上传",
+      "多模态",
+      "团队协作",
+      "插件生态",
+      "知识库"
+    ],
+    "plans": [
+      {
+        "tier": "个人进阶版",
+        "price": 39.9,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "3万积分/月",
+          "高级工作流节点",
+          "更大知识库空间",
+          "图片去水印",
+          "优先视频通道"
+        ]
+      },
+      {
+        "tier": "个人高阶版",
+        "price": 99.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "9.9万积分/月",
+          "Seedance 2.0 模型",
+          "高速通道",
+          "高并发优先服务"
+        ]
+      },
+      {
+        "tier": "个人旗舰版",
+        "price": 199.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "19.9万积分/月",
+          "极速视频通道",
+          "最高额度",
+          "复杂任务并发"
+        ]
+      },
+      {
+        "tier": "个人尊享版",
+        "price": 999.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "99.9万积分/月",
+          "最高优先级",
+          "全部模型访问"
+        ]
+      }
+    ],
+    "renewal_url": "https://www.coze.cn",
+    "cancel_guide": "左下角积分卡片 → 订阅管理 → 取消订阅",
+    "description": "字节跳动AI Agent开发平台，支持可视化工作流、多Agent协作、知识库、插件生态和多端发布。2026年6月推出团队版，覆盖个人到企业全场景。",
+    "website": "https://www.coze.cn",
+    "price_updated": "2026-08-22"
+  },
+  {
+    "product_key": "workbuddy",
+    "display_name": "WorkBuddy",
+    "vendor": "腾讯",
+    "category": "ai_writing",
+    "subcategory": "办公效率",
+    "tags": [
+      "通用对话",
+      "代码生成",
+      "文档分析",
+      "团队协作",
+      "文件上传",
+      "多模态",
+      "插件生态",
+      "数据分析",
+      "自定义指令"
+    ],
+    "plans": [
+      {
+        "tier": "标准版",
+        "price": 99.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": 840.0,
+        "has_annual_discount": true,
+        "features": [
+          "每月4000积分（基础2000+赠送2000）",
+          "全部模型可选",
+          "无限次代码实时补全",
+          "15个自动任务",
+          "创建10个项目",
+          "每项目5人协作"
+        ]
+      },
+      {
+        "tier": "高级版",
+        "price": 199.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": 1680.0,
+        "has_annual_discount": true,
+        "features": [
+          "每月9000积分（基础4000+赠送5000）",
+          "全部模型可选",
+          "无限次代码补全",
+          "30个自动任务",
+          "创建15个项目",
+          "每项目8人协作"
+        ]
+      },
+      {
+        "tier": "旗舰版",
+        "price": 999.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": 8400.0,
+        "has_annual_discount": true,
+        "features": [
+          "每月50000积分（基础20000+赠送30000）",
+          "全部模型可选",
+          "无限次代码补全",
+          "99个自动任务",
+          "创建20个项目",
+          "每项目10人协作"
+        ]
+      },
+      {
+        "tier": "企业旗舰版",
+        "price": 198.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": 2376.0,
+        "has_annual_discount": true,
+        "features": [
+          "2000积分/人/月",
+          "1坐席起购",
+          "团队共享积分池",
+          "组织架构管理",
+          "统一计费",
+          "安全审计"
+        ]
+      }
+    ],
+    "renewal_url": "https://www.workbuddy.cn/pricing/",
+    "cancel_guide": "应用内 设置 → 订阅管理 → 取消订阅",
+    "description": "腾讯出品的AI原生桌面智能体工作台，能自主规划、调用工具、生成文件，打通腾讯办公生态（IM/文档/邮箱/会议/知识库）。与CodeBuddy账号积分共享。",
+    "website": "https://www.workbuddy.cn",
+    "price_updated": "2026-08-22"
+  },
+  {
+    "product_key": "manus",
+    "display_name": "Manus",
+    "vendor": "Manus AI",
+    "category": "ai_chat",
+    "subcategory": "Agent平台",
+    "tags": [
+      "通用对话",
+      "代码生成",
+      "文档分析",
+      "数据分析",
+      "联网搜索",
+      "文件上传",
+      "多模态",
+      "团队协作"
+    ],
+    "plans": [
+      {
+        "tier": "Standard",
+        "price": 20.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 200.0,
+        "has_annual_discount": true,
+        "features": [
+          "4000积分/月",
+          "每日300刷新积分",
+          "20个并行任务",
+          "20个定时任务",
+          "深度研究",
+          "专业网站生成"
+        ]
+      },
+      {
+        "tier": "Plus",
+        "price": 39.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "8000积分/月",
+          "每日300刷新积分",
+          "20个并行任务",
+          "20个定时任务",
+          "API访问",
+          "自定义使用量"
+        ]
+      },
+      {
+        "tier": "Pro",
+        "price": 199.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "40000积分/月",
+          "每日300刷新积分",
+          "20个并行任务",
+          "20个定时任务",
+          "企业API",
+          "批量生产"
+        ]
+      }
+    ],
+    "renewal_url": "https://manus.im",
+    "cancel_guide": "账户设置 → 订阅 → 取消计划",
+    "description": "通用AI Agent，能自主完成研究、数据分析、网站构建、文档生成等复杂任务。2025年初上线，以邀请制起步，现已公开可用。积分制计费，复杂任务消耗较快。",
+    "website": "https://manus.im",
+    "price_updated": "2026-08-22"
+  },
+  {
+    "product_key": "codebuddy",
+    "display_name": "CodeBuddy",
+    "vendor": "腾讯云",
+    "category": "ai_code",
+    "subcategory": "代码补全",
+    "tags": [
+      "代码生成",
+      "代码审查",
+      "团队协作",
+      "API接入",
+      "插件生态",
+      "数据分析"
+    ],
+    "plans": [
+      {
+        "tier": "Pro",
+        "price": 10.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 96.0,
+        "has_annual_discount": true,
+        "features": [
+          "每月2000积分（基础1000+加赠1000）",
+          "无限次代码实时补全",
+          "全模型可选",
+          "15个自动任务",
+          "跨文件理解",
+          "注释生成代码"
+        ]
+      },
+      {
+        "tier": "Team",
+        "price": 40.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 480.0,
+        "has_annual_discount": true,
+        "features": [
+          "1000积分/席位/月",
+          "团队公共池共享",
+          "管理员控制台",
+          "统一账单",
+          "IDE/CLI多形态"
+        ]
+      }
+    ],
+    "renewal_url": "https://codebuddy.ai",
+    "cancel_guide": "个人主页 → 计费与发票 → 取消订阅",
+    "description": "腾讯云AI编程助手，支持代码补全、跨文件理解、自动任务和多模型调度。与WorkBuddy账号积分共享。Pro版月付$10，年付$8/月。",
+    "website": "https://codebuddy.ai",
+    "price_updated": "2026-08-22"
+  },
+  {
+    "product_key": "genspark",
+    "display_name": "Genspark",
+    "vendor": "Genspark AI",
+    "category": "ai_chat",
+    "subcategory": "Agent平台",
+    "tags": [
+      "通用对话",
+      "图像生成",
+      "视频生成",
+      "语音合成",
+      "联网搜索",
+      "文件上传",
+      "多模态",
+      "数据分析",
+      "团队协作"
+    ],
+    "plans": [
+      {
+        "tier": "Plus",
+        "price": 24.99,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 239.88,
+        "has_annual_discount": true,
+        "features": [
+          "10000积分/月",
+          "全部SOTA模型",
+          "50GB AI Drive",
+          "AI Slides/Code",
+          "无限核心对话",
+          "无限图像生成（至2026.12.31）"
+        ]
+      },
+      {
+        "tier": "Pro",
+        "price": 249.99,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 2399.88,
+        "has_annual_discount": true,
+        "features": [
+          "125000积分/月",
+          "1TB AI Drive",
+          "Nano Banana Pro 4K",
+          "GPT Image 2",
+          "全部Plus功能",
+          "最高优先级"
+        ]
+      },
+      {
+        "tier": "Team",
+        "price": 30.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "$30/席位/月",
+          "12000积分/席位/月",
+          "2-150席位",
+          "管理员控制",
+          "SSO/SAML",
+          "60GB存储"
+        ]
+      }
+    ],
+    "renewal_url": "https://genspark.space",
+    "cancel_guide": "Plan页面 → Manage Payment Method → 取消",
+    "description": "多智能体AI工作区，通过Super Agent完成幻灯片、研究简报、网站、视频和自动化电话等任务。Plus $24.99/月，Pro $249.99/月，年付约省20%。",
+    "website": "https://genspark.ai",
+    "price_updated": "2026-08-22"
+  },
+  {
+    "product_key": "recraft",
+    "display_name": "Recraft",
+    "vendor": "Recraft AI",
+    "category": "ai_image",
+    "subcategory": "图像生成",
+    "tags": [
+      "图像生成",
+      "自定义指令",
+      "API接入",
+      "团队协作",
+      "多模态"
+    ],
+    "plans": [
+      {
+        "tier": "Basic",
+        "price": 12.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 120.0,
+        "has_annual_discount": true,
+        "features": [
+          "1000积分/月",
+          "Nano Banana/Seedream/GPT Image/Flux模型",
+          "商业使用权",
+          "无限图片上传",
+          "高级编辑工具",
+          "5并发生成"
+        ]
+      },
+      {
+        "tier": "Pro",
+        "price": 20.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 192.0,
+        "has_annual_discount": true,
+        "features": [
+          "2000积分/月",
+          "视频生成（Kling/Veo/Sora/Seedance）",
+          "全部Basic功能",
+          "优先图像生成",
+          "10并发生成（图像/视频）"
+        ]
+      },
+      {
+        "tier": "Teams",
+        "price": 22.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 216.0,
+        "has_annual_discount": true,
+        "features": [
+          "2000积分/席位/月",
+          "共享工作区",
+          "共享自定义风格",
+          "集中账户管理",
+          "SSO",
+          "24/7高级支持"
+        ]
+      }
+    ],
+    "renewal_url": "https://www.recraft.ai/pricing",
+    "cancel_guide": "个人资料 → Manage subscription → Cancel plan",
+    "description": "设计导向的AI图像生成工具，V4模型擅长矢量图、品牌视觉和可读文字生成。支持SVG/PNG/JPG/PDF/TIFF/Lottie导出，是唯一能生成可编辑矢量图的AI工具。",
+    "website": "https://www.recraft.ai",
+    "price_updated": "2026-08-22"
+  },
+  {
+    "product_key": "aiva",
+    "display_name": "AIVA",
+    "vendor": "AIVA Technologies",
+    "category": "ai_audio",
+    "subcategory": "音乐生成",
+    "tags": [
+      "音乐生成",
+      "作曲",
+      "配乐",
+      "版权归属"
+    ],
+    "plans": [
+      {
+        "tier": "Standard",
+        "price": 15.0,
+        "currency": "EUR",
+        "billing_cycle": "monthly",
+        "annual_price": 132.0,
+        "has_annual_discount": true,
+        "features": [
+          "商业使用版权",
+          "15次下载/月",
+          "最长5分钟曲目",
+          "需标注AIVA"
+        ]
+      },
+      {
+        "tier": "Pro",
+        "price": 33.0,
+        "currency": "EUR",
+        "billing_cycle": "monthly",
+        "annual_price": 396.0,
+        "has_annual_discount": true,
+        "features": [
+          "全版权归属",
+          "300次下载/月",
+          "WAV高质量导出",
+          "无需标注"
+        ]
+      }
+    ],
+    "renewal_url": "https://www.aiva.ai/",
+    "cancel_guide": "在账户设置中取消订阅",
+    "description": "AI 作曲工具，为内容创作者生成免版税配乐",
+    "website": "https://www.aiva.ai/",
+    "price_updated": "2026-08-25"
+  },
+  {
+    "product_key": "mubert",
+    "display_name": "Mubert",
+    "vendor": "Mubert",
+    "category": "ai_audio",
+    "subcategory": "音乐生成",
+    "tags": [
+      "音乐生成",
+      "文本生乐",
+      "商用授权",
+      "无版权水印"
+    ],
+    "plans": [
+      {
+        "tier": "Creator",
+        "price": 14.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "500次生成/月",
+          "无损导出",
+          "商用授权",
+          "无限下载"
+        ]
+      },
+      {
+        "tier": "Pro",
+        "price": 49.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 588.0,
+        "has_annual_discount": true,
+        "features": [
+          "播客/视频变现",
+          "自定义时长",
+          "WAV+MP3导出",
+          "优先下载"
+        ]
+      }
+    ],
+    "renewal_url": "https://mubert.com/",
+    "cancel_guide": "在账户设置中取消订阅",
+    "description": "AI 音乐生成平台，文本/图片生成可商用音乐",
+    "website": "https://mubert.com/",
+    "price_updated": "2026-08-25"
+  },
+  {
+    "product_key": "soundraw",
+    "display_name": "Soundraw",
+    "vendor": "Soundraw",
+    "category": "ai_audio",
+    "subcategory": "音乐生成",
+    "tags": [
+      "音乐生成",
+      "免版税",
+      "商用音乐",
+      "曲风定制"
+    ],
+    "plans": [
+      {
+        "tier": "Creator",
+        "price": 12.99,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 155.88,
+        "has_annual_discount": true,
+        "features": [
+          "免版税商用授权",
+          "无限下载",
+          "自定义风格",
+          "BGM使用"
+        ]
+      },
+      {
+        "tier": "Artist",
+        "price": 25.99,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "音乐变现发布",
+          "加入人声/乐器",
+          "STEMS分轨",
+          "完整版权"
+        ]
+      }
+    ],
+    "renewal_url": "https://soundraw.io/",
+    "cancel_guide": "在账户设置中取消订阅",
+    "description": "AI 音乐生成器，免版税背景音乐与创作工具",
+    "website": "https://soundraw.io/",
+    "price_updated": "2026-08-25"
+  },
+  {
+    "product_key": "dify",
+    "display_name": "Dify",
+    "vendor": "Dify.AI",
+    "category": "ai_code",
+    "subcategory": "代码编辑器",
+    "tags": [
+      "LLM应用开发",
+      "工作流编排",
+      "RAG",
+      "Agent搭建",
+      "低代码"
+    ],
+    "plans": [
+      {
+        "tier": "Professional",
+        "price": 59.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 590.0,
+        "has_annual_discount": true,
+        "features": [
+          "5000消息额度/月",
+          "50个应用",
+          "500文档",
+          "优先文档处理"
+        ]
+      },
+      {
+        "tier": "Team",
+        "price": 159.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 1908.0,
+        "has_annual_discount": true,
+        "features": [
+          "多成员协作",
+          "更高配额",
+          "更快的执行",
+          "日志审计"
+        ]
+      }
+    ],
+    "renewal_url": "https://dify.ai/",
+    "cancel_guide": "在计费设置中取消订阅",
+    "description": "开源 LLM 应用开发平台，支持可视化工作流编排与 RAG",
+    "website": "https://dify.ai/",
+    "price_updated": "2026-08-25"
+  },
+  {
+    "product_key": "n8n",
+    "display_name": "n8n",
+    "vendor": "n8n GmbH",
+    "category": "ai_writing",
+    "subcategory": "办公效率",
+    "tags": [
+      "工作流自动化",
+      "AI Agent",
+      "低代码",
+      "集成450+应用"
+    ],
+    "plans": [
+      {
+        "tier": "Starter",
+        "price": 20.0,
+        "currency": "EUR",
+        "billing_cycle": "monthly",
+        "annual_price": 240.0,
+        "has_annual_discount": true,
+        "features": [
+          "2500次执行/月",
+          "5并发",
+          "1个项目",
+          "社区支持"
+        ]
+      },
+      {
+        "tier": "Pro",
+        "price": 50.0,
+        "currency": "EUR",
+        "billing_cycle": "monthly",
+        "annual_price": 600.0,
+        "has_annual_discount": true,
+        "features": [
+          "10000次执行/月",
+          "20并发",
+          "3个项目",
+          "管理角色"
+        ]
+      }
+    ],
+    "renewal_url": "https://n8n.io/",
+    "cancel_guide": "在账户设置中取消订阅",
+    "description": "工作流自动化平台，可视化编排 AI Agent 与业务流程",
+    "website": "https://n8n.io/",
+    "price_updated": "2026-08-25"
+  },
+  {
+    "product_key": "cline",
+    "display_name": "Cline",
+    "vendor": "Cline (Anysphere)",
+    "category": "ai_code",
+    "subcategory": "代码补全",
+    "tags": [
+      "开源",
+      "AI编程",
+      "VS Code插件",
+      "自主编码",
+      "多模型"
+    ],
+    "plans": [
+      {
+        "tier": "ClinePass",
+        "price": 9.99,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "热门开源模型2-5倍额度",
+          "可选订阅",
+          "任意模型支持"
+        ]
+      },
+      {
+        "tier": "Teams",
+        "price": 20.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "团队协作",
+          "每用户计费",
+          "共享额度",
+          "管理控制"
+        ]
+      }
+    ],
+    "renewal_url": "https://cline.bot/",
+    "cancel_guide": "在账户设置中取消订阅",
+    "description": "开源 AI 编程助手（VS Code 插件），自主编码、按用量付费",
+    "website": "https://cline.bot/",
+    "price_updated": "2026-08-25"
+  },
+  {
+    "product_key": "devin",
+    "display_name": "Devin",
+    "vendor": "Cognition",
+    "category": "ai_code",
+    "subcategory": "代码编辑器",
+    "tags": [
+      "AI软件工程师",
+      "自主Agent",
+      "自动编码",
+      "任务委派"
+    ],
+    "plans": [
+      {
+        "tier": "Pro",
+        "price": 20.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "1个会话席位",
+          "ACU按需计费",
+          "个人使用"
+        ]
+      },
+      {
+        "tier": "Max",
+        "price": 200.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "更高配额",
+          "更多ACU",
+          "重度使用"
+        ]
+      },
+      {
+        "tier": "Teams",
+        "price": 80.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "不限成员",
+          "集中计费",
+          "管理分析",
+          "优先支持"
+        ]
+      }
+    ],
+    "renewal_url": "https://devin.ai/",
+    "cancel_guide": "在账户设置中取消订阅",
+    "description": "全自主 AI 软件工程师，接受任务自动完成编码开发",
+    "website": "https://devin.ai/",
+    "price_updated": "2026-08-25"
+  },
+  {
+    "product_key": "lovable",
+    "display_name": "Lovable",
+    "vendor": "Lovable",
+    "category": "ai_code",
+    "subcategory": "代码编辑器",
+    "tags": [
+      "AI应用构建",
+      "自然语言生成",
+      "全栈开发",
+      "前端生成"
+    ],
+    "plans": [
+      {
+        "tier": "Pro",
+        "price": 25.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 250.0,
+        "has_annual_discount": true,
+        "features": [
+          "100月度credits",
+          "免费额度",
+          "无限用户",
+          "自定义域名"
+        ]
+      },
+      {
+        "tier": "Business",
+        "price": 50.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 500.0,
+        "has_annual_discount": true,
+        "features": [
+          "200月度credits",
+          "团队工作区",
+          "角色权限",
+          "SSO",
+          "优先支持"
+        ]
+      }
+    ],
+    "renewal_url": "https://lovable.dev/",
+    "cancel_guide": "在账户设置中取消订阅",
+    "description": "AI 应用构建平台，用自然语言描述直接生成全栈应用",
+    "website": "https://lovable.dev/",
+    "price_updated": "2026-08-25"
+  },
+  {
+    "product_key": "minimax_hailuo",
+    "display_name": "海螺AI (MiniMax)",
+    "vendor": "MiniMax",
+    "category": "ai_chat",
+    "subcategory": "通用对话",
+    "tags": [
+      "通用对话",
+      "视频生成",
+      "语音",
+      "多模态",
+      "长上下文"
+    ],
+    "plans": [
+      {
+        "tier": "Plus会员",
+        "price": 49.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": 490.0,
+        "has_annual_discount": true,
+        "features": [
+          "高清视频生成",
+          "每日生成额度",
+          "语音功能",
+          "优先队列"
+        ]
+      },
+      {
+        "tier": "Max会员",
+        "price": 119.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": 1188.0,
+        "has_annual_discount": true,
+        "features": [
+          "更高生成额度",
+          "4K输出",
+          "角色一致性",
+          "复杂运镜"
+        ]
+      },
+      {
+        "tier": "Ultra会员",
+        "price": 469.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": 4688.0,
+        "has_annual_discount": true,
+        "features": [
+          "最高额度",
+          "完整视频生成",
+          "顶级算力",
+          "专属支持"
+        ]
+      }
+    ],
+    "renewal_url": "https://hailuoai.com/",
+    "cancel_guide": "在 App/官网会员中心取消自动续费",
+    "description": "MiniMax 旗下 AI 助手，通用对话 + 视频/语音生成",
+    "website": "https://hailuoai.com/",
+    "price_updated": "2026-08-25"
+  },
+  {
+    "product_key": "spark",
+    "display_name": "讯飞星火",
+    "vendor": "科大讯飞",
+    "category": "ai_chat",
+    "subcategory": "通用对话",
+    "tags": [
+      "通用对话",
+      "语音识别",
+      "文档问答",
+      "PPT生成",
+      "办公"
+    ],
+    "plans": [
+      {
+        "tier": "星火会员",
+        "price": 15.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": 180.0,
+        "has_annual_discount": true,
+        "features": [
+          "连续包月",
+          "核心功能",
+          "基础额度"
+        ]
+      },
+      {
+        "tier": "PLUS会员",
+        "price": 19.9,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "128K长文本",
+          "高清图文生成",
+          "优先响应",
+          "更多额度"
+        ]
+      }
+    ],
+    "renewal_url": "https://xinghuo.xfyun.cn/",
+    "cancel_guide": "在 App 内订阅管理中取消自动续费",
+    "description": "科大讯飞 AI 助手，对话 + 语音 + 文档办公一体化",
+    "website": "https://xinghuo.xfyun.cn/",
+    "price_updated": "2026-08-25"
+  },
+  {
+    "product_key": "tiangong",
+    "display_name": "天工 AI",
+    "vendor": "昆仑万维",
+    "category": "ai_chat",
+    "subcategory": "通用对话",
+    "tags": [
+      "通用对话",
+      "AI搜索",
+      "多模态",
+      "PPT生成",
+      "长上下文"
+    ],
+    "plans": [
+      {
+        "tier": "Basic",
+        "price": 45.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": 540.0,
+        "has_annual_discount": true,
+        "features": [
+          "连续包月",
+          "基础功能",
+          "日常对话"
+        ]
+      },
+      {
+        "tier": "Plus会员",
+        "price": 85.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "更高额度",
+          "AI搜索增强",
+          "优先响应"
+        ]
+      },
+      {
+        "tier": "Ultra会员",
+        "price": 188.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "顶级额度",
+          "全部功能",
+          "专属算力"
+        ]
+      }
+    ],
+    "renewal_url": "https://www.tiangong.cn/",
+    "cancel_guide": "在 App 内订阅管理中取消自动续费",
+    "description": "昆仑万维 AI 助手，搜索 + 对话 + 多模态办公",
+    "website": "https://www.tiangong.cn/",
+    "price_updated": "2026-08-25"
+  },
+  {
+    "product_key": "grok",
+    "display_name": "Grok",
+    "vendor": "xAI",
+    "category": "ai_chat",
+    "subcategory": "通用对话",
+    "tags": [
+      "通用对话",
+      "实时信息",
+      "图像生成",
+      "多模态",
+      "X集成"
+    ],
+    "plans": [
+      {
+        "tier": "Premium",
+        "price": 11.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 96.0,
+        "has_annual_discount": true,
+        "features": [
+          "Grok完整访问",
+          "含X Premium",
+          "去广告",
+          "长帖"
+        ]
+      },
+      {
+        "tier": "Premium+",
+        "price": 40.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": 480.0,
+        "has_annual_discount": true,
+        "features": [
+          "高级推理",
+          "语音功能",
+          "X Premium+",
+          "最高分发"
+        ]
+      },
+      {
+        "tier": "SuperGrok",
+        "price": 30.0,
+        "currency": "USD",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "更高额度",
+          "优先访问",
+          "重度使用"
+        ]
+      }
+    ],
+    "renewal_url": "https://grok.com/",
+    "cancel_guide": "在 X/Grok 账户订阅管理中取消",
+    "description": "xAI 的 AI 助手，实时信息 + 多模态对话，深度集成 X",
+    "website": "https://grok.com/",
+    "price_updated": "2026-08-25"
+  },
+  {
+    "product_key": "kling",
+    "display_name": "可灵 AI",
+    "vendor": "快手",
+    "category": "ai_image",
+    "subcategory": "视频生成",
+    "tags": [
+      "视频生成",
+      "文生视频",
+      "图生视频",
+      "数字人",
+      "AI视频"
+    ],
+    "plans": [
+      {
+        "tier": "黄金会员",
+        "price": 66.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "660灵感值/月",
+          "去水印",
+          "视频延长",
+          "约66个标准视频"
+        ]
+      },
+      {
+        "tier": "铂金会员",
+        "price": 266.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "3000灵感值/月",
+          "新功能优先",
+          "高清画质"
+        ]
+      },
+      {
+        "tier": "钻石会员",
+        "price": 666.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": null,
+        "has_annual_discount": false,
+        "features": [
+          "8000灵感值/月",
+          "大师运镜",
+          "最高画质"
+        ]
+      }
+    ],
+    "renewal_url": "https://app.klingai.com/",
+    "cancel_guide": "在 App/官网会员中心取消自动续费",
+    "description": "快手 AI 视频生成平台，文生视频/图生视频/数字人",
+    "website": "https://app.klingai.com/",
+    "price_updated": "2026-08-25"
+  },
+  {
+    "product_key": "jimeng",
+    "display_name": "即梦 AI",
+    "vendor": "字节跳动",
+    "category": "ai_image",
+    "subcategory": "视频生成",
+    "tags": [
+      "视频生成",
+      "图像生成",
+      "文生视频",
+      "图片编辑",
+      "AI创作"
+    ],
+    "plans": [
+      {
+        "tier": "基础会员",
+        "price": 69.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": 659.0,
+        "has_annual_discount": true,
+        "features": [
+          "连续包月",
+          "生成积分",
+          "去水印",
+          "视频延长"
+        ]
+      },
+      {
+        "tier": "标准会员",
+        "price": 119.0,
+        "currency": "CNY",
+        "billing_cycle": "monthly",
+        "annual_price": 1428.0,
+        "has_annual_discount": true,
+        "features": [
+          "4000积分/月",
+          "对口型",
+          "商用授权"
+        ]
+      }
+    ],
+    "renewal_url": "https://jimeng.jianying.com/",
+    "cancel_guide": "在 App 内订阅管理中取消自动续费",
+    "description": "字节跳动 AI 创作平台，图像 + 视频生成与编辑",
+    "website": "https://jimeng.jianying.com/",
+    "price_updated": "2026-08-25"
+  }
+]

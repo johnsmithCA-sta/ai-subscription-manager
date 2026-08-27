@@ -1,0 +1,110 @@
+{
+  "description": "订阅记录字段定义",
+  "fields": {
+    "sub_id": {
+      "type": "string",
+      "format": "sub_YYYYMMDD_NNN",
+      "description": "唯一ID（自动生成）",
+      "required": true,
+      "auto": true
+    },
+    "product_key": {
+      "type": "string",
+      "description": "关联产品（关联 products.json 的 product_key）",
+      "required": true,
+      "auto": false
+    },
+    "tier": {
+      "type": "string",
+      "description": "订阅的套餐档位（对应 products.json 中 plans 的 tier）",
+      "required": true,
+      "auto": false
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "cancelled",
+        "expired"
+      ],
+      "default": "active",
+      "description": "订阅状态",
+      "required": true,
+      "auto": true
+    },
+    "start_date": {
+      "type": "string",
+      "format": "YYYY-MM-DD",
+      "description": "订阅开始日期",
+      "required": true,
+      "auto": false
+    },
+    "next_billing_date": {
+      "type": "string",
+      "format": "YYYY-MM-DD",
+      "description": "下次扣费日期（自动计算）",
+      "required": true,
+      "auto": true
+    },
+    "billing_cycle": {
+      "type": "string",
+      "enum": [
+        "monthly",
+        "yearly",
+        "one-time"
+      ],
+      "description": "计费周期",
+      "required": true,
+      "auto": false
+    },
+    "price_paid": {
+      "type": "number",
+      "description": "实际支付价格",
+      "required": true,
+      "auto": false
+    },
+    "currency": {
+      "type": "string",
+      "enum": [
+        "CNY",
+        "USD"
+      ],
+      "description": "货币单位",
+      "required": true,
+      "auto": false
+    },
+    "payment_method": {
+      "type": "string",
+      "description": "支付方式（如 信用卡、支付宝等）",
+      "required": false,
+      "auto": false
+    },
+    "auto_renew": {
+      "type": "boolean",
+      "default": true,
+      "description": "是否自动续费",
+      "required": false,
+      "auto": false
+    },
+    "notes": {
+      "type": "string",
+      "description": "备注",
+      "required": false,
+      "auto": false
+    },
+    "created_at": {
+      "type": "string",
+      "format": "ISO8601",
+      "description": "创建时间",
+      "required": true,
+      "auto": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "ISO8601",
+      "description": "更新时间",
+      "required": true,
+      "auto": true
+    }
+  }
+}

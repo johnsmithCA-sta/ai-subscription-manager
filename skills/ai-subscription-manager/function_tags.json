@@ -1,0 +1,23 @@
+{
+  "tags": {
+    "通用对话": {"weight": 1.0, "group": "core"},
+    "代码生成": {"weight": 1.0, "group": "core"},
+    "文档分析": {"weight": 0.8, "group": "core"},
+    "图像理解": {"weight": 0.8, "group": "multimodal"},
+    "图像生成": {"weight": 1.0, "group": "multimodal"},
+    "视频生成": {"weight": 1.0, "group": "multimodal"},
+    "语音合成": {"weight": 0.8, "group": "multimodal"},
+    "音乐生成": {"weight": 1.0, "group": "creative"},
+    "数据分析": {"weight": 0.8, "group": "productivity"},
+    "联网搜索": {"weight": 0.6, "group": "capability"},
+    "文件上传": {"weight": 0.6, "group": "capability"},
+    "API 接入": {"weight": 0.7, "group": "developer"},
+    "插件生态": {"weight": 0.5, "group": "ecosystem"},
+    "团队协作": {"weight": 0.6, "group": "collaboration"},
+    "自定义指令": {"weight": 0.4, "group": "customization"},
+    "多模态": {"weight": 0.9, "group": "capability"},
+    "长上下文": {"weight": 0.7, "group": "capability"},
+    "知识库": {"weight": 0.6, "group": "capability"},
+    "代码审查": {"weight": 0.7, "group": "core"}
+  }
+}
