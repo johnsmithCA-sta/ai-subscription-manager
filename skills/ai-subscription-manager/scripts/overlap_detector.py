@@ -17,7 +17,24 @@ _DATA_DIR_OVERRIDE = os.environ.get("SUBMGR_DATA_DIR")
 DATA_DIR = _DATA_DIR_OVERRIDE if _DATA_DIR_OVERRIDE else os.path.join(SCRIPT_DIR, '..')
 
 CURRENCY_SYMBOLS = {'USD': '$', 'CNY': '¥', 'EUR': '€'}
-EXCHANGE_RATES = {'USD': 1.0, 'CNY': 1.0 / 7.25, 'EUR': 1.0 / 1.08}
+# 汇率兜底（to-USD），优先从 rates.json 读取
+_EXCHANGE_RATES_FALLBACK = {'USD': 1.0, 'CNY': 1.0 / 7.25, 'EUR': 1.0 / 0.92}
+
+
+def _load_exchange_rates():
+    """从 rates.json 加载汇率并转为 to-USD 映射；失败时用兜底常量"""
+    try:
+        filepath = os.path.join(DATA_DIR, 'rates.json')
+        with open(filepath, 'r', encoding='utf-8') as f:
+            raw = json.load(f)
+        rates = {cur: (1.0 / r if r else 1.0) for cur, r in raw.get('rates', {}).items()}
+        rates.setdefault('USD', 1.0)
+        return rates
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
+        return dict(_EXCHANGE_RATES_FALLBACK)
+
+
+EXCHANGE_RATES = _load_exchange_rates()
 
 
 def load_json(filename):
@@ -502,6 +519,187 @@ def cmd_optimize(args):
 # ============================================================
 # 主入口
 # ============================================================
+
+# ============================================================
+# 命令 5: scenario — 场景化建议
+# ============================================================
+
+SCENARIOS = {
+    '编程开发': {
+        'tags': ['代码生成', '代码审查', 'API 接入', '长上下文', '插件生态'],
+        'desc': '写代码、Debug、代码审查、IDE 集成',
+    },
+    '写作创作': {
+        'tags': ['通用对话', '文档分析', '自定义指令', '插件生态', '长上下文'],
+        'desc': '写文章、润色、长文创作、文案',
+    },
+    '图像设计': {
+        'tags': ['图像生成', '图像理解', '多模态', '文件上传'],
+        'desc': '画图、海报、素材生成、图生图',
+    },
+    '视频制作': {
+        'tags': ['视频生成', '图像生成', '多模态', '语音合成'],
+        'desc': '短视频、数字人、视频剪辑',
+    },
+    '音频音乐': {
+        'tags': ['音乐生成', '语音合成', '多模态'],
+        'desc': '配乐、音色克隆、语音合成',
+    },
+    '数据分析': {
+        'tags': ['数据分析', '文档分析', '通用对话', 'API 接入'],
+        'desc': '数据处理、报表、Excel、结构化分析',
+    },
+    '研究学习': {
+        'tags': ['文档分析', '知识库', '长上下文', '联网搜索', '通用对话'],
+        'desc': '读论文、查资料、整理笔记、学习',
+    },
+    '日常助手': {
+        'tags': ['通用对话', '联网搜索', '文件上传', '自定义指令'],
+        'desc': '日常问答、信息查询、生活助理',
+    },
+}
+
+
+def weighted_similarity(tags_a, tags_b, tag_weights):
+    """基于标签权重的加权相似度（区分核心功能 vs 次要功能）"""
+    set_a = set(tags_a)
+    set_b = set(tags_b)
+    if not set_a and not set_b:
+        return 0.0
+    union = set_a | set_b
+    inter = set_a & set_b
+    union_w = sum(tag_weights.get(t, {}).get('weight', 0.5) for t in union)
+    if union_w == 0:
+        return 0.0
+    inter_w = sum(tag_weights.get(t, {}).get('weight', 0.5) for t in inter)
+    return inter_w / union_w
+
+
+def scenario_relevance(product_tags, scene_tags, tag_weights):
+    """产品对某场景的相关度 = 命中场景标签权重 / 产品全部标签权重"""
+    p_w = sum(tag_weights.get(t, {}).get('weight', 0.5) for t in product_tags)
+    if p_w == 0:
+        return 0.0, set()
+    hit = set(product_tags) & set(scene_tags)
+    hit_w = sum(tag_weights.get(t, {}).get('weight', 0.5) for t in hit)
+    return hit_w / p_w, hit
+
+
+def cmd_scenario(args):
+    products = load_json('products.json')
+    subscriptions = load_json('subscriptions.json')
+    tag_data = load_json('function_tags.json')
+    tag_weights = tag_data.get('tags', {})
+    active = get_active_subscriptions(subscriptions, products)
+
+    if not active:
+        print("\n⚠️  当前无活跃订阅")
+        return
+
+    # 选择场景
+    scene = getattr(args, 'scene', None)
+    if not scene:
+        print("\n📌 选择使用场景:")
+        names = list(SCENARIOS.keys())
+        for idx, name in enumerate(names, 1):
+            print(f"   {idx}. {name} — {SCENARIOS[name]['desc']}")
+        try:
+            choice = input(f"  请输入编号 (1-{len(names)}): ").strip()
+            scene = names[int(choice) - 1]
+        except (ValueError, IndexError, EOFError):
+            print("  ⚠️  无效输入，使用默认场景「日常助手」")
+            scene = '日常助手'
+    elif scene not in SCENARIOS:
+        print(f"\n⚠️  未知场景「{scene}」，可选: {' / '.join(SCENARIOS.keys())}")
+        return
+
+    scene_tags = set(SCENARIOS[scene]['tags'])
+    scene_desc = SCENARIOS[scene]['desc']
+
+    print(f"\n{'━' * 60}")
+    print(f"📌 场景化建议 · {scene}")
+    print(f"{'━' * 60}")
+    print(f"   场景说明: {scene_desc}")
+    print(f"   活跃订阅: {len(active)} 个\n")
+
+    # 1. 场景相关度排名
+    scored = []
+    for item in active:
+        p = item['product']
+        s = item['sub']
+        rel, hit = scenario_relevance(p['tags'], scene_tags, tag_weights)
+        cost = to_usd(s['price_paid'], s['currency'])
+        scored.append({'item': item, 'rel': rel, 'hit': hit, 'cost': cost,
+                       'name': p['display_name']})
+    scored.sort(key=lambda x: -x['rel'])
+
+    print("  【场景相关度排名】")
+    print(f"  {'产品': <14} {'相关度': >8} {'命中场景功能': <24} {'月费': >8}")
+    print(f"  {'─' * 56}")
+    for sc in scored:
+        hit_str = ', '.join(sorted(sc['hit'])) if sc['hit'] else '—'
+        print(f"  {pad_display(sc['name'], 14)} {sc['rel']:>7.0%} {pad_display(hit_str[:22], 24)} {format_price(sc['cost'], 'USD'):>8}")
+    print()
+
+    # 2. 场景核心产品（相关度 >= 0.5）两两分析
+    core = [sc for sc in scored if sc['rel'] >= 0.5]
+    suggestions = []
+
+    if len(core) >= 2:
+        for i, j in combinations(range(len(core)), 2):
+            a, b = core[i], core[j]
+            tags_a = set(a['item']['product']['tags'])
+            tags_b = set(b['item']['product']['tags'])
+            wsim = weighted_similarity(tags_a, tags_b, tag_weights)
+            if wsim >= 0.55:
+                keep, drop = (a, b) if a['rel'] >= b['rel'] else (b, a)
+                suggestions.append({
+                    'type': '场景重叠',
+                    'priority': 'high' if wsim >= 0.7 else 'medium',
+                    'title': f"考虑用 {keep['name']} 替代 {drop['name']}",
+                    'detail': f"「{scene}」场景下功能加权重叠 {wsim:.0%}（已按核心功能权重加权）",
+                    'saving': drop['cost'],
+                    'drop': drop['name'],
+                    'keep': keep['name'],
+                })
+
+    # 3. 相关度低但价格不低 → 匹配度提示
+    for sc in scored:
+        if sc['rel'] < 0.4 and sc['cost'] >= 20:
+            suggestions.append({
+                'type': '低匹配',
+                'priority': 'medium',
+                'title': f"{sc['name']} 与「{scene}」场景匹配度较低 ({sc['rel']:.0%})",
+                'detail': f"如当前主要使用场景是「{scene}」，可评估该订阅是否必要",
+                'saving': sc['cost'],
+                'drop': sc['name'],
+            })
+
+    # 输出
+    if not suggestions:
+        print("  ✅ 该场景下未发现明显重叠或冗余，组合合理")
+    else:
+        print("  【场景化建议】")
+        for i, s in enumerate(suggestions, 1):
+            icon = {'high': '🔴', 'medium': '🟡'}.get(s.get('priority', 'medium'), '🟡')
+            print(f"  {icon} 建议 {i}: {s['title']}")
+            print(f"     {s['detail']}")
+            print(f"     可节省: ~{format_price(s['saving'])}/月")
+            print()
+
+        # 去重节省（同一产品只计一次）
+        seen_drop = set()
+        total_saving = 0
+        for s in suggestions:
+            if s['drop'] not in seen_drop:
+                seen_drop.add(s['drop'])
+                total_saving += s['saving']
+        print(f"  {'─' * 50}")
+        print(f"  💰 场景优化合计可节省: ~{format_price(total_saving)}/月")
+        print(f"  ⚠️  建议结合真实使用频率判断，场景会随时间变化")
+    print()
+
+
 def main():
     parser = argparse.ArgumentParser(
         description='🔍 重叠检测模块 — 功能重叠/冗余分析/覆盖率/优化建议',
@@ -510,13 +708,15 @@ def main():
   python overlap_detector.py overlap
   python overlap_detector.py redundancy
   python overlap_detector.py coverage
-  python overlap_detector.py optimize""")
+  python overlap_detector.py optimize\n  python overlap_detector.py scenario\n  python overlap_detector.py scenario --scene 编程开发""")
 
     sub = parser.add_subparsers(dest='command', help='可用命令')
     sub.add_parser('overlap', help='订阅间功能重叠矩阵')
     sub.add_parser('redundancy', help='冗余标签与支出分析')
     sub.add_parser('coverage', help='功能覆盖率分析')
     sub.add_parser('optimize', help='订阅优化建议')
+    sc = sub.add_parser('scenario', help='场景化建议（按使用场景分析重叠与替代）')
+    sc.add_argument('--scene', help='使用场景，可选: ' + ' / '.join(SCENARIOS.keys()))
 
     args = parser.parse_args()
     if not args.command:
@@ -528,6 +728,7 @@ def main():
         'redundancy': cmd_redundancy,
         'coverage': cmd_coverage,
         'optimize': cmd_optimize,
+        'scenario': cmd_scenario,
     }
     cmds.get(args.command, lambda a: parser.print_help())(args)
 

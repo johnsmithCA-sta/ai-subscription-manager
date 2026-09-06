@@ -106,5 +106,77 @@
       "required": true,
       "auto": true
     }
+  },
+  "prepaid_balance_assets": {
+    "description": "充值余额型资产（API 余额），存储于 balances.json，与订阅记录分离，由 balance_analyzer.py 管理",
+    "storage": "balances.json",
+    "fields": {
+      "balance_id": {
+        "type": "string",
+        "format": "bal_YYYYMMDD_HHMMSS",
+        "description": "余额资产唯一ID",
+        "required": true,
+        "auto": true
+      },
+      "platform": {
+        "type": "string",
+        "description": "平台名（如 DeepSeek/Kimi/智谱）",
+        "required": true,
+        "auto": false
+      },
+      "currency": {
+        "type": "string",
+        "enum": [
+          "CNY",
+          "USD"
+        ],
+        "description": "币种",
+        "required": true,
+        "auto": false
+      },
+      "balance": {
+        "type": "number",
+        "description": "当前余额（随 record/topup 自动增减）",
+        "required": true,
+        "auto": true
+      },
+      "topup_amount": {
+        "type": "number",
+        "description": "累计充值额（低余额预警基准）",
+        "required": true,
+        "auto": true
+      },
+      "topup_date": {
+        "type": "string",
+        "format": "YYYY-MM-DD",
+        "description": "最近充值日期",
+        "required": true,
+        "auto": true
+      },
+      "purpose": {
+        "type": "string",
+        "description": "主要用途",
+        "required": false,
+        "auto": false
+      },
+      "model_hint": {
+        "type": "string",
+        "description": "常用模型",
+        "required": false,
+        "auto": false
+      },
+      "consumption_log": {
+        "type": "array",
+        "description": "消耗/充值流水 [{date, amount, type: usage|topup, note}]",
+        "required": false,
+        "auto": true
+      },
+      "tokens_used": {
+        "type": "string",
+        "description": "累计已用 tokens（登记口径， informational）",
+        "required": false,
+        "auto": false
+      }
+    }
   }
 }

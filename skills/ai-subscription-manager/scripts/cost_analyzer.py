@@ -52,6 +52,29 @@ def format_price(amount, currency):
     return f"{symbol}{amount:,.2f}"
 
 
+# 默认汇率兜底（1 USD = X 目标货币），优先从 rates.json 读取
+_DEFAULT_RATES_RAW = {'USD': 1.0, 'CNY': 7.25, 'EUR': 0.92}
+
+
+def _load_to_usd_rates():
+    """从 rates.json 加载换算到 USD 的汇率表；读取失败用默认兜底"""
+    try:
+        raw = load_json('rates.json')
+        raw_rates = raw.get('rates', _DEFAULT_RATES_RAW)
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
+        raw_rates = _DEFAULT_RATES_RAW
+    to_usd = {}
+    for cur, rate in raw_rates.items():
+        to_usd[cur] = 1.0 / rate if rate else 1.0
+    return to_usd
+
+
+def to_usd_amount(amount, currency, to_usd_rates):
+    """将金额按汇率统一换算为 USD（用于跨币种比较/占比/合计的统一口径）"""
+    rate = to_usd_rates.get(currency, 1.0)
+    return amount * rate
+
+
 def get_active_subscriptions(subscriptions):
     """获取所有活跃订阅"""
     return [s for s in subscriptions if s.get('status') == 'active']
@@ -105,8 +128,9 @@ def cmd_overview(products, subscriptions):
         monthly_by_currency[sub['currency']] += monthly
 
     # 找出最高和最低单订阅
-    highest = max(active, key=lambda s: to_monthly_cost(s['price_paid'], s['billing_cycle']))
-    lowest = min(active, key=lambda s: to_monthly_cost(s['price_paid'], s['billing_cycle']))
+    to_usd_rates = _load_to_usd_rates()
+    highest = max(active, key=lambda s: to_usd_amount(to_monthly_cost(s['price_paid'], s['billing_cycle']), s['currency'], to_usd_rates))
+    lowest = min(active, key=lambda s: to_usd_amount(to_monthly_cost(s['price_paid'], s['billing_cycle']), s['currency'], to_usd_rates))
 
     highest_monthly = to_monthly_cost(highest['price_paid'], highest['billing_cycle'])
     lowest_monthly = to_monthly_cost(lowest['price_paid'], lowest['billing_cycle'])
@@ -166,6 +190,7 @@ def cmd_by_category(products, subscriptions):
         return
 
     # 按分类汇总（统一转为 USD 进行占比计算）
+    to_usd_rates = _load_to_usd_rates()
     category_costs = defaultdict(float)  # 存储月度费用（按原始币种分别存）
     category_costs_usd = defaultdict(float)  # 用于占比计算的统一货币
     category_subs = defaultdict(list)
@@ -176,8 +201,8 @@ def cmd_by_category(products, subscriptions):
         monthly = to_monthly_cost(sub['price_paid'], sub['billing_cycle'])
         category_subs[category].append(sub)
         category_costs[(category, sub['currency'])] += monthly
-        # 简单按 1:1 近似用于占比（同币种场景下精确）
-        category_costs_usd[category] += monthly
+        # 统一换算为 USD 计算占比，保证跨币种口径一致
+        category_costs_usd[category] += to_usd_amount(monthly, sub['currency'], to_usd_rates)
 
     total = sum(category_costs_usd.values())
 
@@ -233,7 +258,7 @@ def cmd_by_product(products, subscriptions):
         print("⚠️  当前没有活跃的订阅记录。")
         return
 
-    total_monthly_usd = 0
+    to_usd_rates = _load_to_usd_rates()
     product_rows = []
 
     for sub in active:
@@ -241,7 +266,6 @@ def cmd_by_product(products, subscriptions):
         display_name = product['display_name'] if product else sub['product_key']
         monthly = to_monthly_cost(sub['price_paid'], sub['billing_cycle'])
         yearly = monthly * 12
-        total_monthly_usd += monthly  # 简化：假设同币种或 1:1
 
         product_rows.append({
             'name': display_name,
@@ -249,10 +273,11 @@ def cmd_by_product(products, subscriptions):
             'monthly': monthly,
             'yearly': yearly,
             'currency': sub['currency'],
+            'monthly_usd': to_usd_amount(monthly, sub['currency'], to_usd_rates),
         })
 
-    # 按月度费用降序排列
-    product_rows.sort(key=lambda r: r['monthly'], reverse=True)
+    # 按 USD 口径的月度费用降序排列（跨币种统一比较）
+    product_rows.sort(key=lambda r: r['monthly_usd'], reverse=True)
 
     print("📊 产品支出明细")
     print("━" * 40)
@@ -263,9 +288,9 @@ def cmd_by_product(products, subscriptions):
     print(header)
     print("─" * 50)
 
-    total = sum(r['monthly'] for r in product_rows)
+    total = sum(r['monthly_usd'] for r in product_rows)
     for row in product_rows:
-        ratio = row['monthly'] / total if total > 0 else 0
+        ratio = row['monthly_usd'] / total if total > 0 else 0
         pct = f"{ratio * 100:.1f}%"
         name_display = row['name']
         # 中文对齐补偿
@@ -282,7 +307,7 @@ def cmd_by_product(products, subscriptions):
         print(line)
 
     print("─" * 50)
-    print(f"{'合计':<10} {'':8} {format_price(total, product_rows[0]['currency']).rjust(10)} {format_price(total * 12, product_rows[0]['currency']).rjust(10)} {'100.0%'.rjust(8)}")
+    print(f"{'合计':<10} {'':8} {format_price(total, 'USD').rjust(10)} {format_price(total * 12, 'USD').rjust(10)} {'100.0%'.rjust(8)}")
 
 
 # ============================================================
@@ -335,12 +360,14 @@ def cmd_trend(products, subscriptions, months=6):
     print("━" * 40)
     print()
 
-    # 找到最大支出用于归一化柱状图
+    # 找到最大支出用于归一化柱状图（统一 USD 口径）
+    to_usd_rates = _load_to_usd_rates()
     max_cost = 0
     for ms, currencies in monthly_costs.items():
         for curr, val in currencies.items():
-            if val > max_cost:
-                max_cost = val
+            usd_val = to_usd_amount(val, curr, to_usd_rates)
+            if usd_val > max_cost:
+                max_cost = usd_val
 
     for year, month in month_labels:
         month_str = f"{year}-{month:02d}"
@@ -350,18 +377,18 @@ def cmd_trend(products, subscriptions, months=6):
             continue
 
         parts = []
-        total_val = 0
+        total_usd = 0.0
         for curr in ['USD', 'CNY']:
             if curr in currencies:
                 parts.append(format_price(currencies[curr], curr))
-                total_val += currencies[curr]
+                total_usd += to_usd_amount(currencies[curr], curr, to_usd_rates)
         for curr, val in sorted(currencies.items()):
             if curr not in ['USD', 'CNY']:
                 parts.append(format_price(val, curr))
-                total_val += val
+                total_usd += to_usd_amount(val, curr, to_usd_rates)
 
         cost_str = ' + '.join(parts) + '/月'
-        bar_ratio = total_val / max_cost if max_cost > 0 else 0
+        bar_ratio = total_usd / max_cost if max_cost > 0 else 0
         bar = generate_bar(bar_ratio, 15)
         print(f"  {month_str}  {cost_str:<25} {bar}")
 
@@ -423,6 +450,7 @@ def cmd_savings(products, subscriptions):
     print("━" * 40)
     print()
 
+    to_usd_rates = _load_to_usd_rates()
     total_annual_savings = 0.0
 
     # 1. 年付优惠检查
@@ -460,7 +488,7 @@ def cmd_savings(products, subscriptions):
                 'currency': currency,
             })
             print(f"   - {display_name} {tier}: 当前月付 {symbol}{monthly:.2f}/月，年付可省 → {symbol}{annual_price:.2f}/年 vs {symbol}{current_annual:.2f}/年，节省 {symbol}{saving:.2f}")
-            total_annual_savings += saving
+            total_annual_savings += to_usd_amount(saving, currency, to_usd_rates)
         else:
             print(f"   - {display_name} {tier}: 当前月付 {symbol}{monthly:.2f}/月，无年付折扣")
 
@@ -573,8 +601,7 @@ def cmd_savings(products, subscriptions):
 
     # 总结
     if total_annual_savings > 0:
-        symbol = get_currency_symbol(active[0]['currency'])
-        print(f"潜在节省: 约 {symbol}{total_annual_savings:.2f}/年（仅年付优化）")
+        print(f"潜在节省: 约 {format_price(total_annual_savings, 'USD')}/年（仅年付优化）")
     else:
         print("当前所有订阅均无年付折扣可用。建议关注功能重叠，考虑合并同类产品。")
 

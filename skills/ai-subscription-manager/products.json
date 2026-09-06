@@ -89,7 +89,8 @@
     "cancel_guide": "Settings → Subscription → Cancel subscription",
     "description": "OpenAI 旗舰对话 AI 产品，支持文本/图像/代码/数据分析等多模态能力。2026年新增 Go($8/月)、Pro 5x($100/月)、Pro 20x($200/月) 等多档位。",
     "website": "https://chat.openai.com",
-    "price_updated": "2026-08-25"
+    "price_updated": "2026-08-25",
+    "source": "https://openai.com/chatgpt/pricing/"
   },
   {
     "product_key": "claude",
@@ -171,7 +172,8 @@
     "cancel_guide": "Settings → Subscription → Cancel subscription",
     "description": "Anthropic 旗舰对话 AI，以长上下文和代码能力著称。2026年推出 Max 5x/20x 高额度档位和 Team 团队版。",
     "website": "https://claude.ai",
-    "price_updated": "2026-08-20"
+    "price_updated": "2026-08-20",
+    "source": "https://www.anthropic.com/pricing"
   },
   {
     "product_key": "gemini",
@@ -230,7 +232,8 @@
     "cancel_guide": "Google One → Manage Membership → Cancel",
     "description": "Google 旗舰 AI 助手，深度集成 Gmail/Docs/Sheets/Drive 等 Workspace 应用。AI Pro($19.99/月)含2TB存储，性价比突出。",
     "website": "https://gemini.google.com",
-    "price_updated": "2026-08-20"
+    "price_updated": "2026-08-20",
+    "source": "https://one.google.com/about/ai-premium"
   },
   {
     "product_key": "doubao",
@@ -301,7 +304,8 @@
     "cancel_guide": "App内 我的 → 会员中心 → 管理订阅",
     "description": "字节跳动旗舰 AI 助手，月活3.8亿。基础功能永久免费，2026年6月推出三档专业版付费会员。学生认证标准版¥38/月。",
     "website": "https://www.doubao.com",
-    "price_updated": "2026-08-20"
+    "price_updated": "2026-08-20",
+    "source": "https://www.doubao.com/"
   },
   {
     "product_key": "kimi",
@@ -387,7 +391,8 @@
     "cancel_guide": "App内 我的 → 会员中心 → 管理订阅",
     "description": "月之暗面旗舰 AI 产品，K3 模型为 2.8T 参数 MoE，支持100万 token 上下文。国内价目最透明的 AI 会员体系之一。",
     "website": "https://kimi.com",
-    "price_updated": "2026-08-20"
+    "price_updated": "2026-08-20",
+    "source": "https://www.kimi.com/"
   },
   {
     "product_key": "zhipu_qingyan",
@@ -439,7 +444,8 @@
     "cancel_guide": "App Store 订阅管理或 App 内设置",
     "description": "智谱AI旗舰对话产品，基于 GLM 系列模型。免费版每日200万Token额度，专业版¥19/月起。另有 Coding Plan 编程订阅(Lite ¥118/月起)。",
     "website": "https://chatglm.cn",
-    "price_updated": "2026-08-20"
+    "price_updated": "2026-08-20",
+    "source": "https://chatglm.cn/"
   },
   {
     "product_key": "ernie",
@@ -475,7 +481,8 @@
     "cancel_guide": "2025年4月起已全面免费开放，原付费会员已启动退费",
     "description": "百度旗舰 AI 对话产品。2025年4月1日起全面免费开放，原专业版(¥59.9/月)已取消。支持深度搜索功能。",
     "website": "https://yiyan.baidu.com",
-    "price_updated": "2026-08-20"
+    "price_updated": "2026-08-20",
+    "source": "https://yiyan.baidu.com/"
   },
   {
     "product_key": "qwen",
@@ -542,7 +549,8 @@
     "cancel_guide": "App内 办公助理 → 右上角四角星 → 会员管理",
     "description": "阿里旗舰 AI 产品，2026年8月推出办公助理付费会员(高级¥19/月起)。基础功能免费，AI视频生成单独充值额度(10个¥26起)。",
     "website": "https://tongyi.aliyun.com",
-    "price_updated": "2026-08-20"
+    "price_updated": "2026-08-20",
+    "source": "https://tongyi.aliyun.com/qianwen/"
   },
   {
     "product_key": "cursor",
@@ -620,7 +628,8 @@
     "cancel_guide": "Settings → Subscription → Cancel",
     "description": "AI-native 代码编辑器，2026年ARR超20亿美元。双资源池模式(Cursor Models + Other Models)，Pro $20/月起。",
     "website": "https://www.cursor.com",
-    "price_updated": "2026-08-20"
+    "price_updated": "2026-08-20",
+    "source": "https://www.cursor.com/pricing"
   },
   {
     "product_key": "github_copilot",
@@ -702,7 +711,8 @@
     "cancel_guide": "Settings → Billing → Cancel subscription",
     "description": "全球最大 AI 编程助手，用户超2000万。2026年6月转向 AI Credits 计费(1 credit=$0.01)，代码补全免费不限。Pro $10/月性价比最高。",
     "website": "https://github.com/features/copilot",
-    "price_updated": "2026-08-20"
+    "price_updated": "2026-08-20",
+    "source": "https://github.com/features/copilot/plans"
   },
   {
     "product_key": "windsurf",
@@ -766,7 +776,8 @@
     "cancel_guide": "Settings → Subscription → Cancel",
     "description": "原 Codeium，被 Cognition(Devin 母公司)收购后更名。AI 代码编辑器，免费版提供无限补全和25 prompts/月。Pro $15/月，性价比优于 Cursor。",
     "website": "https://windsurf.com",
-    "price_updated": "2026-08-20"
+    "price_updated": "2026-08-20",
+    "source": "https://windsurf.com/pricing"
   },
   {
     "product_key": "codegeex",
@@ -816,7 +827,8 @@
     "cancel_guide": "个人版免费无需取消；企业版联系官方商务",
     "description": "智谱AI出品，开源免费AI编程助手。个人开发者完全免费，支持100+编程语言。企业版私有化部署需联系商务。",
     "website": "https://codegeex.cn",
-    "price_updated": "2026-08-20"
+    "price_updated": "2026-08-20",
+    "source": "https://codegeex.cn/"
   },
   {
     "product_key": "midjourney",
@@ -898,7 +910,8 @@
     "cancel_guide": "Manage Subscription → Cancel Plan (关闭自动续费)",
     "description": "顶级AI图像生成工具，V8.1模型。所有付费计划含商业使用权，年付享20%折扣。Standard $30/月为性价比最优选择。",
     "website": "https://www.midjourney.com",
-    "price_updated": "2026-08-20"
+    "price_updated": "2026-08-20",
+    "source": "https://docs.midjourney.com/docs/plans"
   },
   {
     "product_key": "dalle",
@@ -932,7 +945,8 @@
     "cancel_guide": "通过 ChatGPT 订阅管理，Settings → Subscription",
     "description": "OpenAI 图像生成模型，集成在 ChatGPT 中。Plus($20/月)即可使用，无需单独订阅。",
     "website": "https://chat.openai.com",
-    "price_updated": "2026-08-20"
+    "price_updated": "2026-08-20",
+    "source": "https://openai.com/chatgpt/pricing/"
   },
   {
     "product_key": "stable_diffusion",
@@ -983,7 +997,8 @@
     "cancel_guide": "API 按量计费，无订阅；在 Account 页面管理 credits",
     "description": "最强开源图像生成模型，支持自托管(免费)和API按量付费。年收入<$100万的组织可免费商用。",
     "website": "https://platform.stability.ai",
-    "price_updated": "2026-08-20"
+    "price_updated": "2026-08-20",
+    "source": "https://stability.ai/"
   },
   {
     "product_key": "runway",
@@ -1067,7 +1082,8 @@
     "cancel_guide": "Settings → Billing → Cancel subscription",
     "description": "领先 AI 视频生成平台，Gen-4/4.5 模型。Standard $12/月起(年付)，credits按使用量消耗。所有付费计划支持商用。",
     "website": "https://runwayml.com",
-    "price_updated": "2026-08-20"
+    "price_updated": "2026-08-20",
+    "source": "https://runwayml.com/pricing"
   },
   {
     "product_key": "suno",
@@ -1127,7 +1143,8 @@
     "cancel_guide": "Settings → Subscription → Cancel",
     "description": "领先 AI 音乐生成工具，支持文本生成音乐和歌曲。Pro $10/月含商用授权，Premier $30/月适合重度创作者。",
     "website": "https://suno.com",
-    "price_updated": "2026-08-20"
+    "price_updated": "2026-08-20",
+    "source": "https://suno.com/pricing"
   },
   {
     "product_key": "udio",
@@ -1174,7 +1191,8 @@
     "cancel_guide": "Settings → Subscription → Cancel",
     "description": "AI 音乐生成平台，支持多种音乐风格。Standard $10/月，Pro $30/月。",
     "website": "https://www.udio.com",
-    "price_updated": "2026-08-20"
+    "price_updated": "2026-08-20",
+    "source": "https://www.udio.com/"
   },
   {
     "product_key": "notion_ai",
@@ -1228,7 +1246,8 @@
     "cancel_guide": "Settings & Members → Billing → Cancel subscription",
     "description": "Notion 内置 AI 助手，2026年已将完整AI功能整合至Business计划($20/用户/月)。原$8/月独立附加订阅已停售。",
     "website": "https://www.notion.so",
-    "price_updated": "2026-08-20"
+    "price_updated": "2026-08-20",
+    "source": "https://www.notion.so/pricing"
   },
   {
     "product_key": "jasper",
@@ -1298,7 +1317,8 @@
     "cancel_guide": "Settings → Billing → Cancel subscription",
     "description": "企业级AI营销写作平台。Creator $49/月，Pro $69/月(年付$59/月含5用户)。专注品牌声音和内容营销工作流。",
     "website": "https://www.jasper.ai",
-    "price_updated": "2026-08-20"
+    "price_updated": "2026-08-20",
+    "source": "https://www.jasper.ai/pricing"
   },
   {
     "product_key": "perplexity",
@@ -1363,7 +1383,8 @@
     "cancel_guide": "Settings → Account → Manage Subscription → Cancel",
     "description": "引用优先的 AI 搜索和研究引擎，每次回答都附带来源链接。2026年 Comet 浏览器免费开放，Pro 支持多模型选择和深度研究。",
     "website": "https://www.perplexity.ai",
-    "price_updated": "2026-08-22"
+    "price_updated": "2026-08-22",
+    "source": "https://www.perplexity.ai/"
   },
   {
     "product_key": "microsoft_copilot",
@@ -1427,7 +1448,8 @@
     "cancel_guide": "Microsoft 账户 → 服务和订阅 → 管理 → 取消订阅",
     "description": "Microsoft 365 生态中的 AI 助手，深度集成 Word/Excel/PowerPoint/Outlook/Teams。个人版 Copilot Pro 已整合进 M365 Premium。",
     "website": "https://copilot.microsoft.com",
-    "price_updated": "2026-08-22"
+    "price_updated": "2026-08-22",
+    "source": "https://www.microsoft.com/microsoft-365/microsoft-copilot"
   },
   {
     "product_key": "canva",
@@ -1479,7 +1501,8 @@
     "cancel_guide": "Account Settings → Billing & teams → Cancel subscription",
     "description": "全球最流行的在线设计平台，集成 AI Magic Studio 提供图像生成、文案写作、一键设计等能力。",
     "website": "https://www.canva.com",
-    "price_updated": "2026-08-22"
+    "price_updated": "2026-08-22",
+    "source": "https://www.canva.com/pricing/"
   },
   {
     "product_key": "adobe_cc",
@@ -1553,7 +1576,8 @@
     "cancel_guide": "Adobe Account → Plans → Manage plan → Cancel your plan",
     "description": "行业标准创意工具套件，集成 Firefly 生成式 AI。包含 Photoshop、Illustrator、Premiere Pro 等 20+ 应用。",
     "website": "https://www.adobe.com/creativecloud",
-    "price_updated": "2026-08-22"
+    "price_updated": "2026-08-22",
+    "source": "https://www.adobe.com/creativecloud/plans.html"
   },
   {
     "product_key": "elevenlabs",
@@ -1632,7 +1656,8 @@
     "cancel_guide": "Profile → Subscription → Manage → Cancel plan",
     "description": "全球最佳 AI 语音合成和声音克隆平台，支持 29 种语言，广泛用于有声书、播客、视频配音。",
     "website": "https://elevenlabs.io",
-    "price_updated": "2026-08-22"
+    "price_updated": "2026-08-22",
+    "source": "https://elevenlabs.io/pricing"
   },
   {
     "product_key": "grammarly",
@@ -1692,7 +1717,8 @@
     "cancel_guide": "Account → Subscription → Cancel Subscription",
     "description": "全球使用最广泛的英文写作辅助工具，2026年将 Premium 和 Business 合并为 Pro，集成 AI 生成写作能力。",
     "website": "https://www.grammarly.com",
-    "price_updated": "2026-08-22"
+    "price_updated": "2026-08-22",
+    "source": "https://www.grammarly.com/plans"
   },
   {
     "product_key": "leonardo_ai",
@@ -1757,7 +1783,8 @@
     "cancel_guide": "Settings → Billing → Manage Subscription → Cancel",
     "description": "快速可控的 AI 图像生成平台，支持自定义模型微调、视频生成和多模型聚合（Flux/Veo/Ideogram 等）。已被 Canva 收购。",
     "website": "https://leonardo.ai",
-    "price_updated": "2026-08-22"
+    "price_updated": "2026-08-22",
+    "source": "https://leonardo.ai/"
   },
   {
     "product_key": "synthesia",
@@ -1807,7 +1834,8 @@
     "cancel_guide": "Settings → Billing → Cancel plan",
     "description": "AI 数字人视频生成平台，无需摄影机和演员即可制作专业培训、营销和教学视频。支持 140+ 语言。",
     "website": "https://www.synthesia.io",
-    "price_updated": "2026-08-22"
+    "price_updated": "2026-08-22",
+    "source": "https://www.synthesia.io/pricing"
   },
   {
     "product_key": "replit",
@@ -1859,7 +1887,8 @@
     "cancel_guide": "Account Settings → Subscription → Cancel",
     "description": "云端 AI 编程平台，内置 Agent 可自主构建应用。2026年 Teams 计划已整合进 Core/Pro，按使用量计费。",
     "website": "https://replit.com",
-    "price_updated": "2026-08-22"
+    "price_updated": "2026-08-22",
+    "source": "https://replit.com/pricing"
   },
   {
     "product_key": "descript",
@@ -1927,7 +1956,8 @@
     "cancel_guide": "Settings → Billing → Cancel plan",
     "description": "基于文本编辑的音视频编辑工具，支持转录、AI 语音克隆、Studio Sound 降噪和 Underlord AI 协同编辑。播客和 YouTuber 常用。",
     "website": "https://www.descript.com",
-    "price_updated": "2026-08-22"
+    "price_updated": "2026-08-22",
+    "source": "https://www.descript.com/pricing"
   },
   {
     "product_key": "coze",
@@ -2009,7 +2039,8 @@
     "cancel_guide": "左下角积分卡片 → 订阅管理 → 取消订阅",
     "description": "字节跳动AI Agent开发平台，支持可视化工作流、多Agent协作、知识库、插件生态和多端发布。2026年6月推出团队版，覆盖个人到企业全场景。",
     "website": "https://www.coze.cn",
-    "price_updated": "2026-08-22"
+    "price_updated": "2026-08-22",
+    "source": "https://www.coze.cn/"
   },
   {
     "product_key": "workbuddy",
@@ -2098,7 +2129,8 @@
     "cancel_guide": "应用内 设置 → 订阅管理 → 取消订阅",
     "description": "腾讯出品的AI原生桌面智能体工作台，能自主规划、调用工具、生成文件，打通腾讯办公生态（IM/文档/邮箱/会议/知识库）。与CodeBuddy账号积分共享。",
     "website": "https://www.workbuddy.cn",
-    "price_updated": "2026-08-22"
+    "price_updated": "2026-08-22",
+    "source": "https://work.weixin.qq.com/"
   },
   {
     "product_key": "manus",
@@ -2170,7 +2202,8 @@
     "cancel_guide": "账户设置 → 订阅 → 取消计划",
     "description": "通用AI Agent，能自主完成研究、数据分析、网站构建、文档生成等复杂任务。2025年初上线，以邀请制起步，现已公开可用。积分制计费，复杂任务消耗较快。",
     "website": "https://manus.im",
-    "price_updated": "2026-08-22"
+    "price_updated": "2026-08-22",
+    "source": "https://manus.im/"
   },
   {
     "product_key": "codebuddy",
@@ -2223,7 +2256,8 @@
     "cancel_guide": "个人主页 → 计费与发票 → 取消订阅",
     "description": "腾讯云AI编程助手，支持代码补全、跨文件理解、自动任务和多模型调度。与WorkBuddy账号积分共享。Pro版月付$10，年付$8/月。",
     "website": "https://codebuddy.ai",
-    "price_updated": "2026-08-22"
+    "price_updated": "2026-08-22",
+    "source": "https://codebuddy.tencent.com/"
   },
   {
     "product_key": "genspark",
@@ -2296,7 +2330,8 @@
     "cancel_guide": "Plan页面 → Manage Payment Method → 取消",
     "description": "多智能体AI工作区，通过Super Agent完成幻灯片、研究简报、网站、视频和自动化电话等任务。Plus $24.99/月，Pro $249.99/月，年付约省20%。",
     "website": "https://genspark.ai",
-    "price_updated": "2026-08-22"
+    "price_updated": "2026-08-22",
+    "source": "https://www.genspark.ai/"
   },
   {
     "product_key": "recraft",
@@ -2364,7 +2399,8 @@
     "cancel_guide": "个人资料 → Manage subscription → Cancel plan",
     "description": "设计导向的AI图像生成工具，V4模型擅长矢量图、品牌视觉和可读文字生成。支持SVG/PNG/JPG/PDF/TIFF/Lottie导出，是唯一能生成可编辑矢量图的AI工具。",
     "website": "https://www.recraft.ai",
-    "price_updated": "2026-08-22"
+    "price_updated": "2026-08-22",
+    "source": "https://www.recraft.ai/"
   },
   {
     "product_key": "aiva",
@@ -2412,7 +2448,8 @@
     "cancel_guide": "在账户设置中取消订阅",
     "description": "AI 作曲工具，为内容创作者生成免版税配乐",
     "website": "https://www.aiva.ai/",
-    "price_updated": "2026-08-25"
+    "price_updated": "2026-08-25",
+    "source": "https://www.aiva.ai/pricing"
   },
   {
     "product_key": "mubert",
@@ -2460,7 +2497,8 @@
     "cancel_guide": "在账户设置中取消订阅",
     "description": "AI 音乐生成平台，文本/图片生成可商用音乐",
     "website": "https://mubert.com/",
-    "price_updated": "2026-08-25"
+    "price_updated": "2026-08-25",
+    "source": "https://mubert.com/"
   },
   {
     "product_key": "soundraw",
@@ -2508,7 +2546,8 @@
     "cancel_guide": "在账户设置中取消订阅",
     "description": "AI 音乐生成器，免版税背景音乐与创作工具",
     "website": "https://soundraw.io/",
-    "price_updated": "2026-08-25"
+    "price_updated": "2026-08-25",
+    "source": "https://soundraw.io/"
   },
   {
     "product_key": "dify",
@@ -2557,7 +2596,8 @@
     "cancel_guide": "在计费设置中取消订阅",
     "description": "开源 LLM 应用开发平台，支持可视化工作流编排与 RAG",
     "website": "https://dify.ai/",
-    "price_updated": "2026-08-25"
+    "price_updated": "2026-08-25",
+    "source": "https://dify.ai/pricing"
   },
   {
     "product_key": "n8n",
@@ -2605,7 +2645,8 @@
     "cancel_guide": "在账户设置中取消订阅",
     "description": "工作流自动化平台，可视化编排 AI Agent 与业务流程",
     "website": "https://n8n.io/",
-    "price_updated": "2026-08-25"
+    "price_updated": "2026-08-25",
+    "source": "https://n8n.io/pricing"
   },
   {
     "product_key": "cline",
@@ -2653,7 +2694,8 @@
     "cancel_guide": "在账户设置中取消订阅",
     "description": "开源 AI 编程助手（VS Code 插件），自主编码、按用量付费",
     "website": "https://cline.bot/",
-    "price_updated": "2026-08-25"
+    "price_updated": "2026-08-25",
+    "source": "https://github.com/cline/cline"
   },
   {
     "product_key": "devin",
@@ -2713,7 +2755,8 @@
     "cancel_guide": "在账户设置中取消订阅",
     "description": "全自主 AI 软件工程师，接受任务自动完成编码开发",
     "website": "https://devin.ai/",
-    "price_updated": "2026-08-25"
+    "price_updated": "2026-08-25",
+    "source": "https://devin.ai/"
   },
   {
     "product_key": "lovable",
@@ -2762,7 +2805,8 @@
     "cancel_guide": "在账户设置中取消订阅",
     "description": "AI 应用构建平台，用自然语言描述直接生成全栈应用",
     "website": "https://lovable.dev/",
-    "price_updated": "2026-08-25"
+    "price_updated": "2026-08-25",
+    "source": "https://lovable.dev/pricing"
   },
   {
     "product_key": "minimax_hailuo",
@@ -2825,7 +2869,8 @@
     "cancel_guide": "在 App/官网会员中心取消自动续费",
     "description": "MiniMax 旗下 AI 助手，通用对话 + 视频/语音生成",
     "website": "https://hailuoai.com/",
-    "price_updated": "2026-08-25"
+    "price_updated": "2026-08-25",
+    "source": "https://hailuoai.com/"
   },
   {
     "product_key": "spark",
@@ -2873,7 +2918,8 @@
     "cancel_guide": "在 App 内订阅管理中取消自动续费",
     "description": "科大讯飞 AI 助手，对话 + 语音 + 文档办公一体化",
     "website": "https://xinghuo.xfyun.cn/",
-    "price_updated": "2026-08-25"
+    "price_updated": "2026-08-25",
+    "source": "https://xinghuo.xfyun.cn/"
   },
   {
     "product_key": "tiangong",
@@ -2933,7 +2979,8 @@
     "cancel_guide": "在 App 内订阅管理中取消自动续费",
     "description": "昆仑万维 AI 助手，搜索 + 对话 + 多模态办公",
     "website": "https://www.tiangong.cn/",
-    "price_updated": "2026-08-25"
+    "price_updated": "2026-08-25",
+    "source": "https://www.tiangong.cn/"
   },
   {
     "product_key": "grok",
@@ -2995,7 +3042,8 @@
     "cancel_guide": "在 X/Grok 账户订阅管理中取消",
     "description": "xAI 的 AI 助手，实时信息 + 多模态对话，深度集成 X",
     "website": "https://grok.com/",
-    "price_updated": "2026-08-25"
+    "price_updated": "2026-08-25",
+    "source": "https://x.ai/"
   },
   {
     "product_key": "kling",
@@ -3056,7 +3104,8 @@
     "cancel_guide": "在 App/官网会员中心取消自动续费",
     "description": "快手 AI 视频生成平台，文生视频/图生视频/数字人",
     "website": "https://app.klingai.com/",
-    "price_updated": "2026-08-25"
+    "price_updated": "2026-08-25",
+    "source": "https://klingai.com/"
   },
   {
     "product_key": "jimeng",
@@ -3104,6 +3153,7 @@
     "cancel_guide": "在 App 内订阅管理中取消自动续费",
     "description": "字节跳动 AI 创作平台，图像 + 视频生成与编辑",
     "website": "https://jimeng.jianying.com/",
-    "price_updated": "2026-08-25"
+    "price_updated": "2026-08-25",
+    "source": "https://jimeng.jianying.com/"
   }
 ]

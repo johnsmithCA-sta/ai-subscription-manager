@@ -23,12 +23,28 @@ CURRENCY_SYMBOLS = {
     'EUR': '€',
 }
 
-# 参考汇率（统一转为 USD 进行跨币种比较）
-EXCHANGE_RATES = {
+# 参考汇率（统一转为 USD 进行跨币种比较），优先从 rates.json 读取
+_EXCHANGE_RATES_FALLBACK = {
     'USD': 1.0,
     'CNY': 1.0 / 7.25,
-    'EUR': 1.0 / 1.08,
+    'EUR': 1.0 / 0.92,
 }
+
+
+def _load_exchange_rates():
+    """从 rates.json 加载汇率并转为 to-USD 映射；失败时用兜底常量"""
+    try:
+        filepath = os.path.join(DATA_DIR, 'rates.json')
+        with open(filepath, 'r', encoding='utf-8') as f:
+            raw = json.load(f)
+        rates = {cur: (1.0 / r if r else 1.0) for cur, r in raw.get('rates', {}).items()}
+        rates.setdefault('USD', 1.0)
+        return rates
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
+        return dict(_EXCHANGE_RATES_FALLBACK)
+
+
+EXCHANGE_RATES = _load_exchange_rates()
 
 # 分类中文名称映射
 CATEGORY_NAMES = {

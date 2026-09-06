@@ -8,7 +8,6 @@ Notion/Airtable 风格，以增删改查为核心，弱化统计图表
 import json
 import argparse
 import os
-import subprocess
 import sys
 from datetime import datetime, timedelta
 
@@ -35,7 +34,7 @@ _DEFAULT_RATES_RAW = {'USD': 1.0, 'CNY': 7.25, 'EUR': 0.92}
 def _load_exchange_rates():
     """从 rates.json 加载汇率，返回 (to_usd_map, updated_at_str)"""
     try:
-        raw = load_json('rates.json')
+        raw = load_json('rates.json') or {}
         raw_rates = raw.get('rates', _DEFAULT_RATES_RAW)
         updated = raw.get('updated_at', '')
     except (FileNotFoundError, json.JSONDecodeError, OSError):
@@ -54,6 +53,27 @@ def load_json(filename):
         return None
     with open(filepath, 'r', encoding='utf-8') as f:
         return json.load(f)
+
+
+
+def _open_in_browser(path):
+    """跨平台安全打开生成的 HTML：列表参数不经过 shell，杜绝命令注入；先校验文件存在"""
+    import subprocess
+    abs_path = os.path.abspath(path)
+    if not os.path.isfile(abs_path):
+        print(f"⚠️  文件不存在，无法打开: {abs_path}")
+        return
+    url = 'file://' + abs_path
+    try:
+        if sys.platform == 'darwin':
+            subprocess.run(['open', url], check=False)
+        elif os.name == 'nt':
+            subprocess.run(['cmd', '/c', 'start', '', url], check=False)
+        else:
+            subprocess.run(['xdg-open', url], check=False)
+        print(f"🌐 已在浏览器打开: {url}")
+    except OSError as e:
+        print(f"⚠️  无法自动打开浏览器: {e}")
 
 
 def main():
@@ -79,10 +99,19 @@ def main():
         products = load_json('products.json')
         categories = load_json('categories.json')
         tags_data = load_json('function_tags.json')
-        subscriptions = load_json('subscriptions.json') or []
+        if products is None or categories is None or tags_data is None:
+            print("❌ 错误：技能自带数据文件（products/categories/function_tags）缺失，请检查技能目录完整性")
+            return 1
+        subscriptions = load_json('subscriptions.json')
+        if subscriptions is None:
+            subscriptions = []  # 首次使用：无订阅记录时生成空状态仪表盘
         exchange_rates, rates_updated = _load_exchange_rates()
 
         now = datetime.now().strftime('%Y-%m-%d %H:%M')
+
+        balances_data = load_json('balances.json') or {}
+        if isinstance(balances_data, dict):
+            balances_data = balances_data.get('balances', [])
 
         html = generate_html(
             products=json.dumps(products, ensure_ascii=False),
@@ -95,6 +124,7 @@ def main():
             rates=json.dumps(exchange_rates, ensure_ascii=False),
             rates_updated=rates_updated,
             remind_config=json.dumps(load_json('remind_config.json') if os.path.exists(os.path.join(DATA_DIR, 'remind_config.json')) else {}, ensure_ascii=False),
+            balances=json.dumps(balances_data, ensure_ascii=False),
             now=now,
             product_count=len(products),
         )
@@ -106,11 +136,12 @@ def main():
         print(f'   产品库: {len(products)} 款')
         print(f'   当前订阅: {len(subscriptions)} 条')
         if args.open:
-            subprocess.run(['open', output_path])
+            _open_in_browser(output_path)
 
 
 def generate_html(products, categories, tags, subscriptions,
-                  colors, emoji, symbols, rates, rates_updated, remind_config, now, product_count):
+                  colors, emoji, symbols, rates, rates_updated, remind_config, now, product_count,
+                  balances='[]'):
 
     # ── 生成产品分组选项 HTML ──
     cats_data = json.loads(categories)
@@ -201,6 +232,23 @@ body {{
   font-size: 13px; color: var(--text2); padding: 6px 12px;
   background: var(--bg); border-radius: 8px; white-space: nowrap;
 }}
+
+
+/* ── Quickstart 30秒上手指引 ── */
+.quickstart {{
+  background: linear-gradient(135deg, #eef0ff 0%, #fdf4ff 100%);
+  border: 1px solid #c7d2fe; border-radius: var(--radius);
+  padding: 14px 20px; margin-bottom: 16px; box-shadow: var(--shadow);
+}}
+.quickstart-head {{ display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }}
+.quickstart-title {{ font-size: 14px; font-weight: 700; color: var(--primary); }}
+.quickstart-close {{ background: transparent; border: none; cursor: pointer; font-size: 14px; color: var(--text2); padding: 2px 6px; border-radius: 6px; font-family: inherit; }}
+.quickstart-close:hover {{ background: rgba(102,126,234,0.1); color: var(--primary); }}
+.quickstart-steps {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }}
+.quickstart-step {{ display: flex; gap: 10px; align-items: flex-start; background: #fff; border-radius: 10px; padding: 10px 12px; }}
+.quickstart-num {{ flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--primary); color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }}
+.quickstart-step b {{ font-size: 13px; color: var(--text); }}
+.quickstart-desc {{ font-size: 12px; color: var(--text2); margin-top: 2px; }}
 
 /* ── Renewal Banner ── */
 .renewal-banner {{
@@ -543,6 +591,29 @@ body {{
   .fr3 {{ grid-template-columns: 1fr; }}
 }}
 
+/* ── API 余额资产 ── */
+.bal-section {{ margin: 22px 0; }}
+.bal-title {{ font-size: 16px; font-weight: 700; margin-bottom: 12px; color: var(--text); display: flex; align-items: center; gap: 8px; }}
+.bal-count {{ font-size: 12px; font-weight: 500; color: var(--text2); background: var(--bg); border-radius: 10px; padding: 2px 10px; }}
+.bal-alert {{ display: flex; align-items: center; gap: 10px; background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; border-radius: 12px; padding: 10px 14px; margin-bottom: 12px; font-size: 13px; }}
+.bal-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }}
+.bal-card {{ background: var(--bg); border-radius: 14px; padding: 16px; border: 1px solid rgba(0,0,0,0.05); }}
+.bal-head {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }}
+.bal-platform {{ font-size: 14px; font-weight: 600; color: var(--text); }}
+.bal-model {{ font-size: 11px; color: var(--text2); background: var(--surface, rgba(0,0,0,0.04)); border-radius: 8px; padding: 2px 8px; max-width: 55%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }}
+.bal-amount {{ font-size: 24px; font-weight: 700; color: var(--text); margin: 4px 0 2px; }}
+.bal-sub {{ font-size: 12px; color: var(--text2); margin-bottom: 10px; }}
+.bal-bar {{ height: 6px; background: rgba(0,0,0,0.08); border-radius: 3px; overflow: hidden; margin-bottom: 6px; }}
+.bal-bar-fill {{ height: 100%; border-radius: 3px; background: linear-gradient(90deg,#48bb78,#38a169); }}
+.bal-bar-fill.warn {{ background: linear-gradient(90deg,#ed8936,#dd6b20); }}
+.bal-bar-fill.danger {{ background: linear-gradient(90deg,#f56565,#c53030); }}
+.bal-meta {{ display: flex; justify-content: space-between; font-size: 11px; color: var(--text2); }}
+.bal-days {{ font-size: 12px; font-weight: 600; border-radius: 8px; padding: 2px 8px; }}
+.bal-days.ok {{ color: #276749; background: #c6f6d5; }}
+.bal-days.warn {{ color: #975a16; background: #feebc8; }}
+.bal-days.danger {{ color: #9b2c2c; background: #fed7d7; }}
+.bal-days.na {{ color: var(--text2); background: rgba(0,0,0,0.05); }}
+
 /* ── Analysis Modal ── */
 .an-section {{ margin-bottom: 22px; }}
 .an-section:last-child {{ margin-bottom: 0; }}
@@ -702,6 +773,7 @@ const SYMBOLS = {symbols};
 const RATES = {rates};
 const RATES_UPDATED = '{rates_updated}';
 const REMIND_CONFIG = {remind_config};
+const BALANCES = {balances};
 const PRODUCT_COUNT = {product_count};
 const NOW = '{now}';
 
@@ -842,6 +914,9 @@ function render(){{
   // ── Renewal Banner ──
   h+=renderRenewalBanner();
 
+  // ── Quickstart 上手指引 ──
+  h+=renderQuickstart();
+
   // ── Card Grid ──
   h+='<div class="card-grid">';
   if(filtered.length===0){{
@@ -853,12 +928,24 @@ function render(){{
   }}
   h+='</div>';
 
+  // ── API 余额资产 ──
+  h+=renderBalances();
+
   // ── Bottom Stats ──
+  var apiStats=apiBurnStats();
   h+='<div class="bottom-bar"><div class="stats-row">';
   h+='<div class="stat-item"><span class="stat-label">月支出</span><span class="stat-value">'+fmtUsd(data.monthly)+'</span></div>';
   h+='<div class="stat-sep"></div>';
   h+='<div class="stat-item"><span class="stat-label">年支出</span><span class="stat-value">'+fmtUsd(data.annual)+'</span></div>';
   h+='<div class="stat-sep"></div>';
+  if(apiStats.count>0){{
+    h+='<div class="stat-item"><span class="stat-label">API 月耗</span><span class="stat-value">'+fmtUsd(apiStats.monthlyUsd)+'</span></div>';
+    h+='<div class="stat-sep"></div>';
+    h+='<div class="stat-item"><span class="stat-label">AI 总支出</span><span class="stat-value">'+fmtUsd(data.monthly+apiStats.monthlyUsd)+'</span></div>';
+    h+='<div class="stat-sep"></div>';
+    h+='<div class="stat-item"><span class="stat-label">API 总余额</span><span class="stat-value">'+fmtUsd(apiStats.totalUsd)+'</span></div>';
+    h+='<div class="stat-sep"></div>';
+  }}
   h+='<div class="stat-item"><span class="stat-value">'+subs.filter(function(s){{return s.status==='active';}}).length+'</span><span class="stat-label">个活跃订阅</span></div>';
   h+='<div class="stat-sep"></div>';
   h+='<div class="stat-item"><span class="stat-label">覆盖率</span><span class="stat-value">'+data.covPct+'%</span></div>';
@@ -893,7 +980,90 @@ function render(){{
   document.getElementById('app').innerHTML=h;
 }}
 
-function renderRenewalBanner(){{
+
+// ══════════════════════════════════════════════════
+// API 余额资产（余额卡片 + 预警 + 寿命折算）
+// ══════════════════════════════════════════════════
+function balanceBurn(b) {{
+  var logs=(b.consumption_log||[]).filter(function(l){{ return l.type!=='topup'; }});
+  if(logs.length===0) return null;
+  var dates=logs.map(function(l){{ return new Date(l.date).getTime(); }}).sort(function(a,b){{ return a-b; }});
+  var total=logs.reduce(function(s,l){{ return s+(+l.amount||0); }},0);
+  var span=Math.max(Math.round((dates[dates.length-1]-dates[0])/86400000), logs.length-1, 1);
+  var rate=logs.length===1? total : total/span;
+  return rate>0? {{rate:rate,days:b.balance/rate}} : null;
+}}
+
+function renderBalances() {{
+  if(!BALANCES || BALANCES.length===0) return '';
+  var th=((REMIND_CONFIG.balance_alert||{{}}).threshold_pct!==undefined)? REMIND_CONFIG.balance_alert.threshold_pct : 20;
+  var low=BALANCES.filter(function(b){{ return (b.topup_amount||0)>0 && b.balance<(b.topup_amount||0)*th/100; }});
+  var h='<div class="bal-section">';
+  h+='<div class="bal-title">💳 API 余额资产 <span class="bal-count">'+BALANCES.length+' 项</span></div>';
+  if(low.length>0) {{
+    h+='<div class="bal-alert">🚨 <b>'+low.length+'</b> 项余额低于充值额的 '+th+'%：'+low.map(function(b){{ return esc(b.platform)+' '+fmtPrice(b.balance,b.currency); }}).join('、')+'，建议续充</div>';
+  }}
+  h+='<div class="bal-grid">';
+  BALANCES.forEach(function(b) {{
+    var burn=balanceBurn(b);
+    var topup=b.topup_amount||0;
+    var usedPct= topup>0? Math.min(100,Math.max(0,(topup-b.balance)/topup*100)) : 0;
+    var cls= usedPct>=80?'danger':(usedPct>=60?'warn':'');
+    var daysHtml;
+    if(burn) {{
+      var d=Math.floor(burn.days);
+      var dcls= d<30?'danger':(d<60?'warn':'ok');
+      daysHtml='<span class="bal-days '+dcls+'">≈'+d+' 天</span>';
+    }} else {{ daysHtml='<span class="bal-days na">记账后可折算寿命</span>'; }}
+    h+='<div class="bal-card">';
+    h+='<div class="bal-head"><span class="bal-platform">'+esc(b.platform)+'</span>'+(b.model_hint?'<span class="bal-model">'+esc(b.model_hint)+'</span>':'')+'</div>';
+    h+='<div class="bal-amount">'+fmtPrice(b.balance,b.currency)+'</div>';
+    h+='<div class="bal-sub">'+(topup>0?'充值 '+fmtPrice(topup,b.currency)+' · 已用 '+usedPct.toFixed(0)+'%':'充值额未登记')+(b.tokens_used?' · 已用 '+esc(b.tokens_used)+' tok':'')+'</div>';
+    if(topup>0) {{ h+='<div class="bal-bar"><div class="bal-bar-fill '+cls+'" style="width:'+usedPct+'%"></div></div>'; }}
+    h+='<div class="bal-meta"><span>'+(burn? '月耗 ≈'+fmtPrice(burn.rate*30,b.currency):'消耗速率：待记账')+'</span>'+daysHtml+'</div>';
+    h+='</div>';
+  }});
+  h+='</div></div>';
+  return h;
+}}
+
+function apiBurnStats() {{
+  var monthlyUsd=0, totalUsd=0;
+  (BALANCES||[]).forEach(function(b) {{
+    totalUsd+=toUsd(b.balance,b.currency);
+    var burn=balanceBurn(b);
+    if(burn) monthlyUsd+=toUsd(burn.rate*30,b.currency);
+  }});
+  return {{monthlyUsd:monthlyUsd,totalUsd:totalUsd,count:(BALANCES||[]).length}};
+}}
+
+
+function renderQuickstart() {{
+  try {{ if(localStorage.getItem('submgr_qs_done')) return ''; }} catch(e) {{}}
+  var h='';
+  h+='<div class="quickstart" id="quickstart">';
+  h+='<div class="quickstart-head"><span class="quickstart-title">🚀 30 秒上手指引</span>';
+  h+='<button class="quickstart-close" onclick="closeQuickstart()" aria-label="关闭">✕</button></div>';
+  h+='<div class="quickstart-steps">';
+  var steps=[
+    ['1','➕ 添加订阅','点击右上角「+ 添加订阅」，登记产品与扣款日'],
+    ['2','⏰ 关注续费','顶部横幅提示 30 天内到期的订阅'],
+    ['3','💡 快捷分析','成本分析 / 续费评估 / 同类比价 / 重叠检测'],
+    ['4','📥 导出备份','随时导出 JSON 备份订阅数据'],
+  ];
+  steps.forEach(function(s) {{
+    h+='<div class="quickstart-step"><span class="quickstart-num">'+s[0]+'</span><div><b>'+s[1]+'</b><div class="quickstart-desc">'+s[2]+'</div></div></div>';
+  }});
+  h+='</div></div>';
+  return h;
+}}
+function closeQuickstart() {{
+  try {{ localStorage.setItem('submgr_qs_done','1'); }} catch(e) {{}}
+  var el=document.getElementById('quickstart'); if(el) el.style.display='none';
+}}
+
+function renderRenewalBanner() {{
+
   var active=subs.filter(function(s){{ return s.status==='active'; }});
   if(active.length===0) return '';
   var daysList=(REMIND_CONFIG.remind_days||[1,3,7,14,30]).slice().sort(function(a,b){{return a-b;}});

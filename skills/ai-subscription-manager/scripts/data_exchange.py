@@ -253,11 +253,11 @@ def cmd_import_csv(args):
                 errors.append(f"第{row_num}行: price_paid 格式错误 '{mapped.get('price_paid')}'")
                 continue
 
-            auto_renew_val = mapped.get('auto_renew', 'true')
-            if auto_renew_val in ('是', 'true', 'True', '1', 'yes'):
-                auto_renew = True
-            elif auto_renew_val in ('否', 'false', 'False', '0', 'no'):
+            auto_renew_val = str(mapped.get('auto_renew', '')).strip().lower()
+            if auto_renew_val in ('否', 'false', '0', 'no', 'n', 'f'):
                 auto_renew = False
+            elif auto_renew_val in ('是', 'true', '1', 'yes', 'y', 't'):
+                auto_renew = True
             else:
                 auto_renew = True  # 空值/未知默认自动续费
 

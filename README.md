@@ -1,6 +1,6 @@
 # ai-subscription-manager · AI 订阅管理助手
 
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg) ![Release](https://img.shields.io/badge/Release-v1.1.0-green.svg) ![SkillHub](https://img.shields.io/badge/SkillHub-@user_65c8c185%2Fai-subscription-manager-orange.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg) ![Release](https://img.shields.io/badge/Release-v1.2.1-green.svg) ![SkillHub](https://img.shields.io/badge/SkillHub-@user_65c8c185%2Fai-subscription-manager-orange.svg)
 
 **English** — Track every AI subscription and API balance in one local ledger: 50 built-in AI product price definitions, renewal alerts, cost analytics, same-category price comparison, feature-overlap detection, and an HTML dashboard. All data stays on your machine.
 
@@ -32,6 +32,8 @@ AI subscriptions are scattered, small, and auto-renewing. Individually painless,
 | 成本统计 Cost analysis | `cost_analyzer.py` | 月度 / 年度支出拆解 |
 | 同类比价 Price comparison | `price_comparator.py` | 同类替代品性价比排序 |
 | 重叠检测 Overlap detection | `overlap_detector.py` | 找出重复订阅 |
+| 余额分析 Balance analysis | `balance_analyzer.py` | API 余额寿命折算与低余额预警 |
+| 成本预估 Cost estimation | `task_estimator.py` | token 级任务成本测算与模型路由建议 |
 | 仪表盘 Dashboard | `dashboard.py` | 生成独立 HTML 看板 |
 | 导入导出 Import / export | `data_exchange.py` | 台账备份与恢复 |
 | 价格维护 Price upkeep | `price_updater.py` | 刷新过时定价 |

@@ -481,6 +481,165 @@ def cmd_checklist():
 
 # ============ 主入口 ============
 
+
+
+# ============ Usage API 导入与用量分析（v13 STEP4） ============
+
+USAGE_PROVIDERS = {
+    "openai": {
+        "display": "OpenAI",
+        "product_key": "chatgpt",
+        "env_key": "OPENAI_API_KEY",
+        "usage_endpoint": "https://api.openai.com/v1/organization/usage/completions",
+        "price_per_1m_input": 2.5,
+        "price_per_1m_output": 10.0,
+    },
+    "anthropic": {
+        "display": "Anthropic",
+        "product_key": "claude",
+        "env_key": "ANTHROPIC_API_KEY",
+        "usage_endpoint": "https://api.anthropic.com/v1/organizations/usage/messages",
+        "price_per_1m_input": 3.0,
+        "price_per_1m_output": 15.0,
+    },
+}
+
+
+def fetch_usage(provider, api_key, days):
+    """调用官方 Usage API 获取最近 N 天 token 用量"""
+    import urllib.request
+    from datetime import timedelta
+    cfg = USAGE_PROVIDERS[provider]
+    end = datetime.now()
+    start = end - timedelta(days=days)
+    url = f"{cfg['usage_endpoint']}?start_time={int(start.timestamp())}"
+    req = urllib.request.Request(url)
+    req.add_header("Authorization", f"Bearer {api_key}")
+    with urllib.request.urlopen(req, timeout=15) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+def mock_usage(provider, days):
+    """生成模拟用量数据（演示/测试链路用）"""
+    import random
+    from datetime import timedelta
+    random.seed(42)
+    end = datetime.now()
+    data = {"provider": provider, "days": days, "daily": []}
+    total_in = total_out = 0
+    for i in range(days):
+        day = end - timedelta(days=days - 1 - i)
+        in_tokens = random.randint(20000, 120000)
+        out_tokens = random.randint(5000, 40000)
+        total_in += in_tokens
+        total_out += out_tokens
+        data["daily"].append({"date": day.strftime("%Y-%m-%d"),
+                              "input_tokens": in_tokens, "output_tokens": out_tokens})
+    data["total_input_tokens"] = total_in
+    data["total_output_tokens"] = total_out
+    return data
+
+
+def estimate_usage_cost(cfg, total_in, total_out):
+    cost_in = total_in / 1_000_000 * cfg["price_per_1m_input"]
+    cost_out = total_out / 1_000_000 * cfg["price_per_1m_output"]
+    return cost_in + cost_out
+
+
+def cmd_usage(args):
+    provider = (args.provider or "openai").lower()
+    if provider not in USAGE_PROVIDERS:
+        print(f"⚠️  不支持的 provider「{provider}」，可选: openai / anthropic")
+        return
+    cfg = USAGE_PROVIDERS[provider]
+    days = args.days or 30
+
+    api_key = args.api_key or os.environ.get(cfg["env_key"], "")
+
+    if args.mock:
+        usage = mock_usage(provider, days)
+    else:
+        if not api_key:
+            print(f"\n🔑 未提供 {cfg['display']} API Key")
+            print(f"   方式1: --api-key sk-xxx")
+            print(f"   方式2: 设置环境变量 {cfg['env_key']}")
+            print(f"   或使用 --mock 演示模式生成模拟数据测试链路")
+            return
+        try:
+            usage = fetch_usage(provider, api_key, days)
+        except Exception as e:
+            print(f"\n❌ 获取用量失败: {e}")
+            return
+
+    total_in = usage.get("total_input_tokens", 0) or 0
+    total_out = usage.get("total_output_tokens", 0) or 0
+    total_tokens = total_in + total_out
+    est_cost = estimate_usage_cost(cfg, total_in, total_out)
+
+    # 关联本地订阅
+    sub = None
+    try:
+        subs = load_subscriptions()
+        for s in get_active_subscriptions(subs):
+            if s.get("product_key") == cfg["product_key"]:
+                sub = s
+                break
+    except Exception:
+        pass
+
+    print(f"\n{SEPARATOR}")
+    print(f"📊 {cfg['display']} 用量分析（近 {days} 天）")
+    print(SEPARATOR)
+    print(f"  输入 tokens : {total_in:,}")
+    print(f"  输出 tokens : {total_out:,}")
+    print(f"  总 tokens   : {total_tokens:,}")
+    print(f"  估算 API 成本: ${est_cost:.2f}")
+    if sub:
+        print(f"  关联订阅   : {sub['product_key']} / {sub.get('tier', '')} / "
+              f"{sub.get('price_paid')} {sub.get('currency', '')}")
+
+    # 续费评估（基于日均用量）
+    daily_avg = total_tokens / days if days else 0
+    print(f"\n{SEPARATOR}")
+    print(f"💡 续费评估建议")
+    print(SEPARATOR)
+    print(f"  日均 tokens : {daily_avg:,.0f}")
+    if daily_avg < 2000:
+        level = "🔴 建议缩减"
+        advice = "用量非常低：若订阅价格较高，可考虑降档或改用按量付费，避免闲置支出"
+    elif daily_avg < 10000:
+        level = "🟡 正常持有"
+        advice = "用量适中：订阅基本物有所值，可继续持有，关注月度趋势"
+    else:
+        level = "🟢 用量充足"
+        advice = "用量较高：确认当前套餐是否满足需求；若频繁触达额度上限，可考虑升档"
+    print(f"  评估结论   : {level}")
+    print(f"  建议       : {advice}")
+
+    # 保存用量快照
+    try:
+        usage_file = os.path.join(DATA_DIR, "usage_data.json")
+        snapshots = []
+        if os.path.exists(usage_file):
+            with open(usage_file, "r", encoding="utf-8") as f:
+                snapshots = json.load(f)
+        snapshots.append({
+            "provider": provider,
+            "date": datetime.now().strftime("%Y-%m-%d %H:%M"),
+            "days": days,
+            "total_input_tokens": total_in,
+            "total_output_tokens": total_out,
+            "est_cost_usd": round(est_cost, 2),
+            "mock": bool(args.mock),
+        })
+        with open(usage_file, "w", encoding="utf-8") as f:
+            json.dump(snapshots, f, ensure_ascii=False, indent=2)
+        print(f"\n  💾 用量快照已保存: usage_data.json")
+    except Exception as e:
+        print(f"\n  ⚠️  快照保存失败: {e}")
+    print()
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="续费指导模块 - 帮助用户快速找到续费链接、取消方法、升降级操作指引"
@@ -512,6 +671,11 @@ def main():
 
     # checklist 命令
     subparsers.add_parser("checklist", help="生成续费操作清单")
+    usage_parser = subparsers.add_parser("usage", help="导入 OpenAI/Anthropic Usage 用量数据并生成续费评估")
+    usage_parser.add_argument("--provider", default="openai", help="provider: openai / anthropic")
+    usage_parser.add_argument("--api-key", help="API Key（也可用环境变量 OPENAI_API_KEY / ANTHROPIC_API_KEY）")
+    usage_parser.add_argument("--days", type=int, default=30, help="分析最近 N 天（默认 30）")
+    usage_parser.add_argument("--mock", action="store_true", help="演示模式：使用模拟数据测试链路")
 
     args = parser.parse_args()
 
@@ -531,6 +695,8 @@ def main():
         cmd_cancel(args.product)
     elif args.command == "checklist":
         cmd_checklist()
+    elif args.command == "usage":
+        cmd_usage(args)
 
 
 if __name__ == "__main__":
