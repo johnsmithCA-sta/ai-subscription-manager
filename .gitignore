@@ -1,3 +1,57 @@
+# ==============================================================================
+# ai-subscription-manager 加固版 .gitignore
+# 放置位置：仓库根目录
+# 目的：把「个人订阅台账 / API 余额 / 使用明细」彻底挡在版本库之外
+# 注意：.gitignore 不支持行尾注释，所有说明必须独占一行
+# 来源：GitHub 隐私加固交付合集 2026-09-09
+# ==============================================================================
+
+# ---------- 1. 个人台账数据（核心，禁止入库）----------
+subscriptions.json
+balances.json
+usage_data.json
+budget.json
+ledger.json
+ledger-*.json
+balances-*.json
+
+# ---------- 2. 导出产物 ----------
+dashboard.html
+out.html
+report.html
+report-*.html
+*.csv
+*.xlsx
+*.db
+*.sqlite
+*.sqlite3
+
+# ---------- 3. 备份与临时 ----------
+backup.json
+backup-*.json
+*.bak
+*.tmp
+*.log
+
+# ---------- 4. 凭据 ----------
+.env
+.env.*
+*.pem
+*.key
+*.p12
+credential.json
+credential-*.json
+
+# ---------- 5. 常规 ----------
 .DS_Store
 __pycache__/
 *.pyc
+
+# ---------- 6. 白名单：产品库与模式文件必须入库 ----------
+!products.json
+!rates.json
+!token_prices.json
+!categories.json
+!function_tags.json
+!subscription_schema.json
+!example-*.json
