@@ -3,10 +3,10 @@ name: ai-subscription-manager
 slug: ai-subscription-manager
 displayName: AI 订阅管理助手
 summary: 管理 50 款 AI 产品订阅 + API 余额资产：增删改查、到期提醒、成本统计、续费指导、同类比价、功能重叠检测、token 级任务成本预测、余额寿命折算、HTML 可视化仪表盘，完全离线本地化。
-version: 1.2.1
+version: 1.2.2
 license: MIT
-description: 管理AI产品订阅与API余额资产的综合工具，内置50款AI产品定价库，覆盖订阅增删改查、到期提醒、成本统计、续费指导、同类比价、导入导出、功能重叠检测、token级任务成本预测、API余额寿命折算、HTML可视化仪表盘等全流程。当用户提到以下任意关键词时立即触发：管理订阅、订阅管理、我的订阅、查看订阅、订阅列表、订阅状态、订阅仪表盘、AI订阅、AI会员、AI工具订阅、会员管理、查看会员、续费提醒、到期提醒、即将扣费、续费评估、续费建议、要不要续费、成本分析、花了多少钱、订阅开销、月度支出、年度支出、订阅费用、订阅比价、同类比价、价格对比、哪个便宜、性价比排行、替代方案、功能重叠、重复订阅、订阅导入、订阅导出、订阅备份、添加订阅、新增订阅、删除订阅、修改订阅、取消订阅、自定义产品、定价过时、定价更新、砍订建议、订阅优化、API余额、余额还剩多少、余额能用多久、充值提醒、token成本、任务成本预测、跑一批要多少钱、哪个模型便宜、模型计价。触发后必须生成HTML仪表盘并交付给用户，同时根据用户具体需求执行对应分析。
 homepage: https://github.com/johnsmithCA-sta/ai-subscription-manager
+description: 管理AI产品订阅与API余额资产的综合工具，内置50款AI产品定价库，覆盖订阅增删改查、到期提醒、成本统计、续费指导、同类比价、导入导出、功能重叠检测、token级任务成本预测、API余额寿命折算、HTML可视化仪表盘等全流程。触发词：管理订阅、订阅管理、我的订阅、查看订阅、订阅列表、订阅状态、订阅仪表盘、AI订阅、AI会员、AI工具订阅、会员管理、查看会员、续费提醒、到期提醒、即将扣费、续费评估、续费建议、要不要续费、成本分析、花了多少钱、订阅开销、月度支出、年度支出、订阅费用、订阅比价、同类比价、价格对比、哪个便宜、性价比排行、替代方案、功能重叠、重复订阅、订阅导入、订阅导出、订阅备份、添加订阅、新增订阅、删除订阅、修改订阅、取消订阅、自定义产品、定价过时、定价更新、砍订建议、订阅优化、API余额、余额还剩多少、余额能用多久、充值提醒、token成本、任务成本预测、跑一批要多少钱、哪个模型便宜、模型计价。触发后必须生成HTML仪表盘并交付给用户，同时根据用户具体需求执行对应分析。不代为支付或取消订阅（只给操作指引），不登录第三方平台，不做云端存储。
 ---
 
 # AI 订阅管理助手
@@ -33,150 +33,25 @@ homepage: https://github.com/johnsmithCA-sta/ai-subscription-manager
 
 - `SUBMGR_DATA_DIR`：自定义数据目录。设置后，所有脚本从该目录读取 `products.json`、`subscriptions.json`、`rates.json` 等文件，仪表盘也输出到该目录。适合需要把数据放在技能目录之外（如 iCloud / Git 仓库）的用户。未设置时默认使用技能根目录。
 
-## 脚本一览
+## 脚本速查
 
-共 9 个脚本，均位于 `scripts/` 目录。所有脚本使用 `python3` 运行，参数通过 argparse 传递。
+共 11 个脚本，均在 `scripts/` 目录，用 `python3` 运行；**完整命令与参数见 `references/脚本速查.md`**。
 
-### 1. subscription_manager.py — 订阅 CRUD
+| 脚本 | 干什么 |
+|---|---|
+| `subscription_manager.py` | 订阅增删改查、概览、自定义产品 |
+| `renewal_checker.py` | 到期检查、订阅状态总览 |
+| `cost_analyzer.py` | 成本总览 / 分类 / 产品 / 月度趋势 / 预算对比 / 节省建议 |
+| `renewal_guide.py` | 续费信息、升降级与取消指引、官方用量分析（`usage`） |
+| `price_comparator.py` | 同类比价、性价比排行、替代方案、跨分类排行、砍订优化 |
+| `data_exchange.py` | CSV / JSON 导入导出与模板 |
+| `overlap_detector.py` | 功能重叠矩阵、冗余分析、覆盖率、场景化建议 |
+| `dashboard.py` | 生成 HTML 可视化仪表盘（含 30 秒上手指引） |
+| `price_updater.py` | 定价新鲜度检测与半自动更新 |
+| `task_estimator.py` | token 级任务成本预测、峰谷分时、模型路由建议 |
+| `balance_analyzer.py` | API 余额资产管理、寿命折算、余额在线同步 |
 
-```bash
-python3 scripts/subscription_manager.py list                          # 列出所有订阅
-python3 scripts/subscription_manager.py add --product chatgpt --tier Plus --price 20 --currency USD --start 2026-01-15 --billing monthly  # 添加订阅
-python3 scripts/subscription_manager.py update <sub_id> --tier Pro    # 更新订阅
-python3 scripts/subscription_manager.py remove <sub_id>               # 删除订阅
-python3 scripts/subscription_manager.py summary                       # 订阅概览
-python3 scripts/subscription_manager.py add-product                # 交互式添加自定义产品
-python3 scripts/subscription_manager.py add-product --product-key myapp --display-name "我的应用" --category ai_chat --plans "Pro|39|CNY|monthly"  # 参数式添加
-```
-
-### 2. renewal_checker.py — 到期提醒
-
-```bash
-python3 scripts/renewal_checker.py check          # 检查即将到期的订阅
-python3 scripts/renewal_checker.py check --days 7 # 检查 7 天内到期
-python3 scripts/renewal_checker.py status          # 订阅状态总览
-```
-
-### 3. cost_analyzer.py — 成本统计
-
-```bash
-python3 scripts/cost_analyzer.py overview                    # 成本总览
-python3 scripts/cost_analyzer.py by-category                # 按分类统计
-python3 scripts/cost_analyzer.py by-product                 # 按产品统计
-python3 scripts/cost_analyzer.py trend --months 6           # 月度趋势
-python3 scripts/cost_analyzer.py budget --monthly 100 --currency USD  # 预算对比
-python3 scripts/cost_analyzer.py savings                    # 节省建议
-```
-
-### 4. renewal_guide.py — 续费指导
-
-```bash
-python3 scripts/renewal_guide.py info --product chatgpt    # 查看某产品续费信息（链接/取消/升降级）
-python3 scripts/renewal_guide.py list                      # 所有已订阅产品的续费信息
-python3 scripts/renewal_guide.py upgrade --product chatgpt --from Plus --to Pro    # 套餐升级指引
-python3 scripts/renewal_guide.py downgrade --product chatgpt --from Pro --to Plus  # 套餐降级指引
-python3 scripts/renewal_guide.py cancel --product chatgpt  # 取消订阅指引
-python3 scripts/renewal_guide.py checklist                 # 续费操作清单
-python3 scripts/renewal_guide.py usage --mock              # 用量分析（OpenAI/Anthropic Usage API）
-python3 scripts/renewal_guide.py usage --provider anthropic --api-key sk-xxx --days 60  # 指定 provider/Key/天数
-```
-
-`usage` 子命令支持导入 OpenAI / Anthropic 官方 Usage API 的 token 用量（用户自备 API Key，也可用环境变量 `OPENAI_API_KEY` / `ANTHROPIC_API_KEY`），统计输入/输出 tokens、估算 API 成本，并按日均用量给出续费评估建议（缩减 / 正常持有 / 升档）。未提供 Key 时可用 `--mock` 演示模式测试链路，用量快照保存至 `usage_data.json`。
-
-### 5. price_comparator.py — 比价功能
-
-```bash
-python3 scripts/price_comparator.py compare --category ai_chat                    # 同类对比
-python3 scripts/price_comparator.py compare --category ai_code --currency CNY     # 指定币种
-python3 scripts/price_comparator.py ranking                                       # 性价比排行
-python3 scripts/price_comparator.py ranking --category ai_image                   # 分类排行
-python3 scripts/price_comparator.py alternative --product chatgpt                 # 替代方案推荐
-python3 scripts/price_comparator.py alternative                                   # 分析当前订阅的替代方案
-python3 scripts/price_comparator.py cross-compare --min-tags 6                    # 跨分类全能排行
-python3 scripts/price_comparator.py tier-guide --product cursor                   # 套餐指南
-python3 scripts/price_comparator.py optimize                                            # 订阅优化建议（砍订分析+月省金额）
-```
-
-### 6. data_exchange.py — 导入导出
-
-```bash
-python3 scripts/data_exchange.py export-csv                          # 导出 CSV（中文表头）
-python3 scripts/data_exchange.py export-json                         # 导出 JSON
-python3 scripts/data_exchange.py import-csv file.csv --dry-run       # CSV 导入预览
-python3 scripts/data_exchange.py import-csv file.csv                 # 正式导入
-python3 scripts/data_exchange.py import-json backup.json --replace   # JSON 替换导入
-python3 scripts/data_exchange.py template --format csv               # 生成导入模板
-```
-
-### 7. overlap_detector.py — 重叠检测
-
-```bash
-python3 scripts/overlap_detector.py overlap      # 功能重叠矩阵
-python3 scripts/overlap_detector.py redundancy    # 冗余标签与支出分析
-python3 scripts/overlap_detector.py coverage      # 功能覆盖率分析
-python3 scripts/overlap_detector.py optimize      # 优化建议
-python3 scripts/overlap_detector.py scenario                 # 场景化建议（交互式选场景）
-python3 scripts/overlap_detector.py scenario --scene 编程开发 # 按使用场景分析重叠与替代
-```
-
-`scenario` 按使用场景（编程开发/写作创作/图像设计/视频制作/音频音乐/数据分析/研究学习/日常助手）计算各订阅的「场景相关度」，结合标签权重做加权重叠分析，给出该场景下的替代建议与可节省金额，以及低匹配度订阅的评估提示。
-
-
-### 8. dashboard.py — HTML 可视化仪表盘
-
-```bash
-python3 scripts/dashboard.py generate                    # 生成仪表盘（默认 dashboard.html）
-python3 scripts/dashboard.py generate --output out.html  # 指定输出路径
-python3 scripts/dashboard.py generate --open             # 生成后自动打开
-```
-
-仪表盘包含：订阅卡片、成本总览、分类支出环形图、续费日历、功能覆盖率、重叠分析、优化建议、同类产品对比，首页内置「30 秒上手指引」（首次打开显示，可关闭后不再出现）。
-
-### 9. price_updater.py — 定价保鲜检测
-
-```bash
-python3 scripts/price_updater.py status                          # 定价新鲜度概览
-python3 scripts/price_updater.py check                           # 列出可能过时的产品
-python3 scripts/price_updater.py check --all --category ai_chat  # 含中风险+按分类
-python3 scripts/price_updater.py update --product chatgpt --touch                  # 标记定价已核对
-python3 scripts/price_updater.py update --product chatgpt --tier Plus --price 20 --currency USD --billing monthly  # 更新套餐价格
-```
-
-检测 `products.json` 中每款产品的 `price_updated` 新鲜度，识别定价可能过时的产品（>=180 天高风险、90-180 天待关注）。`update` 为半自动引导：核对官网后手动标记或改价，避免盲目自动抓取。
-
-### 10. task_estimator.py — 任务成本预测（token 级计价）
-
-```bash
-python3 scripts/task_estimator.py estimate --task batch_intro --count 10   # 批量任务成本估算（多模型对比表）
-python3 scripts/task_estimator.py estimate --task batch_intro --count 10 --model kimi-k3          # 只算指定模型
-python3 scripts/task_estimator.py estimate --task batch_intro --count 10 --when offpeak           # 按谷时口径
-python3 scripts/task_estimator.py estimate --input-tokens 5000 --output-tokens 2000 --count 3     # 自定义用量估算
-python3 scripts/task_estimator.py list-tasks            # 任务模板列表
-python3 scripts/task_estimator.py list-models           # 模型计价列表
-python3 scripts/task_estimator.py set-price --model kimi-k3 --input-miss 8 --input-hit 2 --output 32 --verified --source "https://platform.moonshot.cn/docs/pricing"  # 核对后更新单价（含来源溯源）
-```
-
-基于 `token_prices.json` 的模型单价（每百万 tokens：输入未命中/缓存命中/输出）与任务模板（单位 token 基线 + 缓存命中率假设），输出多模型成本对比表、批量总成本、峰谷分时两档对比与"错峰执行可省多少"，并给出首选/兜底模型路由建议。分时模型（如 DeepSeek 峰时 2 倍价）自动按当前时间或 `--when` 取档。`set-price` 支持记录核价来源 URL，形成可信价格链。
-
-### 11. balance_analyzer.py — API 余额资产分析
-
-```bash
-python3 scripts/balance_analyzer.py add --platform DeepSeek --balance 100 --currency CNY --purpose "API 兜底" --model deepseek-v4-flash   # 登记余额资产
-python3 scripts/balance_analyzer.py record --id <balance_id> --amount 12 --note "批量简介"    # 记录一笔消耗
-python3 scripts/balance_analyzer.py topup --id <balance_id> --amount 100                      # 记录充值
-python3 scripts/balance_analyzer.py list                                                      # 余额列表 + 寿命概览
-python3 scripts/balance_analyzer.py analyze --id <balance_id> --task batch_intro              # 寿命折算 + 余额可跑批数（按任务模板）
-python3 scripts/balance_analyzer.py check                                                     # 低余额预警检查
-python3 scripts/balance_analyzer.py sync --from-workbuddy                                     # 在线同步余额（DeepSeek/Moonshot）
-```
-
-管理充值余额型资产（balances.json，字段定义见 `subscription_schema.json` 的 `prepaid_balance_assets`）：按消耗流水折算日均消耗速率与预计耗尽日期，结合 `token_prices.json` 任务模板折算"余额还能跑多少批"，低余额预警（余额 < 累计充值额的 `remind_config.json → balance_alert.threshold_pct`，默认 20%）可接入到期提醒的每日检查。
-
-`sync` 子命令支持在线查询真实余额并写回（差额自动记入消耗/充值流水）：DeepSeek（`GET /user/balance`）与 Moonshot/Kimi（`GET /v1/users/me/balance`）已验证可用；Key 来源：环境变量 `DEEPSEEK_API_KEY`/`MOONSHOT_API_KEY` 优先，或 `--from-workbuddy` 复用本机 `~/.workbuddy/models.json` 已配置的模型 Key（仅内存使用不落盘）。阿里云百炼等无公开余额 API 的平台会提示手动更新。
-
-### 12. 到期自动提醒（可选 CodeAct 定时任务）
-
-支持配置每日自动检查：读取订阅数据，检查近 7 天到期/扣费的订阅与已过期仍活跃的订阅并输出提醒，无临近到期时输出简洁播报；同一到期事件只提醒一次（SQLite 去重）。由 Agent 环境挂载日历每日触发，结果自动回传判断是否提醒主人；数据目录可通过 `SUBMGR_DATA_DIR` 指定。
+另支持**每日到期自动提醒**（可选定时任务：检查近 7 天到期/扣费与已过期仍活跃的订阅，同一事件只提醒一次）。数据目录可用 `SUBMGR_DATA_DIR` 指定。
 
 ## 入口引导流程
 
@@ -412,11 +287,9 @@ python3 scripts/dashboard.py generate --output dashboard.html
 - **错误信息脱敏**：错误提示仅显示文件名，不暴露本机目录结构
 - **打开文件安全**：仪表盘打开使用 `subprocess.run` 列表参数，不经过 shell，杜绝命令注入
 
-## 版本台账
+## 参考文档
 
-| 版本 | 日期 | 变更 |
-|------|------|------|
-| 1.0.0 | 2026-08-21 | 首发内置 36 款产品，9 能力 |
-| 1.1.0 | 2026-08-26 | 产品库扩至 50 款；P0/P1 整改（frontmatter 补全、路径脱敏、auto_renew 解析修复、仪表盘空状态兜底、权限收紧） |
-| 1.2.1 | 2026-08-28 | 仪表盘新增「API 余额资产」可视化板块（余额卡片/消耗进度条/寿命徽标/低余额预警 banner，总支出升级为订阅+API 双口径）；balance_analyzer 新增 `sync` 子命令（DeepSeek/Moonshot 余额在线同步，差额留痕） |
-| 1.2.0 | 2026-08-28 | 基座对齐扣子平台 v14（新增 usage 用量分析 / scenario 场景化重叠 / price_updater 定价保鲜 / 仪表盘 30 秒指引 / 到期自动提醒）；回补 1.1.0 全部整改并统一汇率口径（全脚本读 rates.json）；新增 token 级任务成本预测（task_estimator.py + token_prices.json）与 API 余额资产分析（balance_analyzer.py + balances.json），含峰谷分时计价、错峰建议、路由建议、核价溯源（set-price --source）、低余额预警 |
+| 文件 | 内容 | 何时读 |
+|---|---|---|
+| `references/脚本速查.md` | 11 个脚本的完整子命令与参数 | 要执行脚本、不确定用哪个子命令时 |
+| `references/Changelog.md` | 完整版本历史 | 问「这版改了什么 / 历史版本」时 |
